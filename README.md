@@ -7,6 +7,7 @@ This browser based web application to ...
 ## 2. Names of Contributors
 List team members and/or short bio's here... 
 * Glenn Dossot - My name is Glenn Dossot. 
+* ... Hello, My name is kevin
 * ...
 * ...
 	
@@ -53,7 +54,6 @@ It has the following subfolders and files:
     /blah.js                 # 
 ├── styles                   # Folder for styles
     /blah.css                # 
-
 
 
 ```
