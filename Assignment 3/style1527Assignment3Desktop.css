@@ -1,0 +1,285 @@
+/*
+Desktop format
+@media only screen and (min-width: 1201px) and (max-width: 1600px)
+*/
+
+html,
+body {
+
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.6;
+	color: #333;
+	background-color: #ffffff;
+}
+
+
+@media only screen and (min-width: 1200px) {
+	.container {
+		min-height: 100vh;
+		display: grid;
+		grid-template-columns: 15% auto;
+		grid-template-rows: auto auto auto auto 1fr auto;
+		grid-template-areas:
+			"header feature"
+			"sidebar feature"
+			"sidebar button"
+			"aside mail"
+			"aside content"
+			"footer footer";
+	}
+
+	header {
+		grid-area: header;
+		background-color: #ffffff;
+		padding: 15px;
+	}
+
+	header img {
+		max-width: 70%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+	}
+
+	.sidebar {
+		grid-area: sidebar;
+		background-color: white;
+		padding: 10px 10px;
+		overflow-x: auto;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.sidebar-item {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	
+	.sidebar-item img {
+		width: 100px;
+		height: 100px;
+		margin-right: 10px;
+	}
+	
+	.sidebar-item h2 {
+		font-size: 16px;
+		color: black;
+		margin: 0;
+	}
+
+	aside{
+		grid-area: aside;
+		text-align: center;
+		font-size: 150%;
+		
+	}
+
+	aside span{
+		color:#2980b9;
+	}
+
+	.feature {
+		grid-area: feature;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	.feature img {
+		max-width: 100%;
+		height: auto;
+		display: block;
+	}
+
+	#featuredPic {
+		display: none;
+	}
+
+	#floatingText1,
+	#floatingText2 {
+		color: black;
+		font-size: 24px;
+		position: absolute;
+		left: 0%;
+		padding: 10px;
+		background-color: gray;
+		z-index: 1;
+	}
+
+	#floatingText1 {
+		width: 30%;
+		top: 475px;
+	}
+
+	#floatingText2 {
+		width: 40%;
+		bottom: 60px;
+	}
+
+	.NavButtons {
+		grid-area: button;
+		display: flex;
+		justify-content: space-between;
+		align-items: stretch; 
+		width: 100%;
+	}
+	
+	.NavButtons button {
+		flex: 1;
+		margin: 0 5px;
+		padding: 20px;
+		width: 100%; 
+	}
+	
+
+	.NavButtons a {
+		flex: 1;
+		margin: 0 5px;
+		padding: 20px;
+		text-align: center;
+		text-decoration: none;
+		color: inherit;
+		display: block; 
+		width: 100%; 
+	}
+	
+	
+	.NavButtons a:hover {
+		background-color: #2980b9;
+	}
+
+	.mail {
+		grid-area: mail;
+		background-color: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		max-width: 100%;
+
+	}
+
+	.mail .icon-text {
+		display: flex;
+		align-items: center;
+		margin-right: 15px;
+		white-space: nowrap;
+	}
+
+	.mail img {
+		width: 20px;
+		height: auto;
+		margin-right: 8px;
+	}
+
+	.mail p {
+		margin: 0;
+		color: #333;
+		font-size: 14px;
+	}
+
+	.mail input[type="email"] {
+		flex-grow: 1;
+		padding: 8px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 14px;
+		min-width: 0;
+	}
+
+	.mail input[type="submit"] {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 8px 15px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: background-color 0.3s;
+		margin-left: 10px;
+		white-space: nowrap;
+	}
+
+	.mail input[type="submit"]:hover {
+		background-color: #45a049;
+	}
+
+	@media (max-width: 768px) {
+		.mail {
+			flex-direction: column;
+			align-items: stretch;
+			padding: 15px;
+		}
+
+		.mail .icon-text,
+		.Mail input[type="email"],
+		.Mail input[type="submit"] {
+			margin: 5px 0;
+			width: 100%;
+		}
+	}
+
+	.content {
+		grid-area: content;
+		background-color: #fff;
+		padding: 20px;
+		overflow-y: auto;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: 1fr;
+		grid-template-areas:
+			"content1 content2 content3 content4"
+
+
+	}
+
+	.content img {
+		display: block;
+		width: 100%;
+		
+	}
+
+	#content1 {
+		grid-area: content1;
+	}
+
+	#content2 {
+		grid-area: content2;
+	}
+
+	#content3 {
+		grid-area: content3;
+	}
+
+	#content4 {
+		grid-area: content4;
+	}
+
+	footer {
+		grid-area: footer;
+		background-color: #34495e;
+		color: #ecf0f1;
+		padding: 15px;
+		text-align: center;
+		font-size: 0.8rem;
+	}
+
+	p {
+		max-width: 600px;
+		margin: 0 auto 15px;
+	}
+}
