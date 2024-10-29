@@ -25,6 +25,14 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
 
+  <!-- Firebase 8 Library related CSS, JS, JQuery go here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
 
   <!-- Other libraries go here -->
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sign-in/">
@@ -40,12 +48,11 @@
 </head>
 
 <body>
-
   <!------------------------------>
   <!-- Your HTML Layout go here -->
   <!------------------------------>
   <!-- Stuff for body goes here -->
-  <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="./images/Quest.png" width="30" height="30" alt="">
@@ -87,10 +94,9 @@
   <div class="banner">
     Welcome to <span class="banner-highlight">TeamBBy11</span>!
     <img src="./images/Welcome Banner.jpg" width="100%">
-</div>
+  </div>
   
-  
-  <body class="d-flex align-items-center py-4 bg-body-tertiary">
+  <!-- class="d-flex align-items-center py-4 bg-body-tertiary" -->
     <svg xmlns="https://static.vecteezy.com/system/resources/thumbnails/002/497/200/small/letter-q-logo-icon-design-template-free-vector.jpg" class="d-none">
       <symbol id="check2" viewBox="0 0 16 16">
         <path
@@ -189,128 +195,19 @@
 
   <footer>
     <p>&copy; 2024 TeamBBy11. All rights reserved.</p>
-  </footer> -->
-
-  <div class="sidebar">
-    <div class="sidebar-item">
-      <img src="mouse (1).png" alt="Box Logo">
-      <h2>Mouse</h2>
-    </div>
-    <div class="sidebar-item">
-      <img src="keyboard.png" alt="Box Logo">
-      <h2>Keyboard</h2>
-    </div>
-    <div class="sidebar-item">
-      <img src="mouse.png" alt="Box Logo">
-      <h2>Mouse Pad</h2>
-    </div>
-    <div class="sidebar-item">
-      <img src="computer.png" alt="Box Logo">
-      <h2>PC</h2>
-    </div>
-    <div class="sidebar-item">
-      <img src="headphones.png" alt="Box Logo">
-      <h2>Headset</h2>
-    </div>
-  </div>
-
-  <aside>
-    <p>
-      Favourite games:
-    </p>
-    <p>10000Hr: <span>League of Legend</span> </p>
-    <p>520Hr: <span>Blender</span> </p>
-    <p>62Hr: <span>Inscryption</span> </p>
-    <p>27Hr: <span>Balatro</span> </p>
-  </aside>
-
-  <header>
-    <img src="security-room.png" alt="box logo">
-  </header>
-
-
-  <div class="feature">
-    <img id="featuredPic" src="Gpro.jpg" alt="box 1">
-    <img id="featuredPic2" src="ApexPro.jpg" alt="box 1">
-    <div id="floatingText1">Featuring</div>
-    <div id="floatingText2">My Current Favourite Item</div>
-  </div>
-
-  <div class="NavButtons">
-    <button type="button">Mouse</button>
-    <button type="button">Keyboard</button>
-    <button type="button">Mouse-Pad</button>
-    <button type="button">Headphones</button>
-  </div>
-
-  <div class="mail">
-    <div class="icon-text">
-      <img src="mail.png" alt="Mail">
-      <p>Sign up for al of our upcomming promotions:</p>
-    </div>
-    <input type="email" id="email" name="email" placeholder="Enter your email" />
-    <input type="submit" id="submit" name="submit" value="Submit" />
-  </div>
-
-  <div class="content">
-    <div id=content1>
-      <p><img src="ApexPro.jpg" alt="Mail"></p>
-      <p>The SteelSeries Apex Pro TKL is a premium tenkeyless mechanical keyboard
-        designed for gamers and enthusiasts. It features groundbreaking OmniPoint
-        adjustable switches, allowing users to customize actuation points from
-        0.4mm to 3.6mm per key. The keyboard boasts an OLED smart display,
-        aircraft-grade aluminum frame, and per-key RGB lighting. Its compact form
-        factor saves desk space without sacrificing functionality. The Apex Pro TKL
-        includes a detachable USB-C cable and a magnetic wrist rest for comfort.
-        With its advanced features and durable construction, this keyboard offers
-        unparalleled precision and personalization for competitive gaming and typing.
-      </p>
-    </div>
-    <div id=content2>
-      <p><img src="Gpro.jpg" alt="Mail"></p>
-      <p>The Logitech G Pro Wireless is a high-performance gaming mouse designed for esports professionals and
-        competitive gamers. It features a lightweight ambidextrous design, weighing just 80 grams, and uses Logitech's
-        HERO 25K sensor for precise tracking. The mouse offers a 1ms report rate and up to 60 hours of battery life.
-        With programmable buttons, onboard memory for custom profiles, and LIGHTSPEED wireless technology, it ensures
-        responsive, lag-free gameplay. The G Pro Wireless boasts a minimalist aesthetic, comfortable shape for various
-        grip styles, and optional side buttons for left or right-handed use.
-      </p>
-    </div>
-    <div id=content3>
-      <p><img src="QC45.jpg" alt="Mail"></p>
-      <p>The Bose QuietComfort 45 headphones offer premium noise-cancelling technology and exceptional audio quality.
-        These over-ear headphones feature a comfortable, lightweight design with soft ear cushions and a padded headband
-        for extended wear. They boast up to 24 hours of battery life and quick charging capabilities. The QC45s have
-        intuitive controls, multi-point Bluetooth connectivity, and a companion app for customization. With their Aware
-        Mode for ambient sound and high-fidelity audio performance, these headphones provide an immersive listening
-        experience for music, podcasts, and calls in various environments.
-      </p>
-    </div>
-    <div id=content4>
-      <p><img src="Lttstore_NorthernLightsDeskPad_TransparencyFile.png" alt="Mail"></p>
-      <p>The Linus Tech Tips Northern Lights Deskpad is a premium mouse surface designed for gamers and tech
-        enthusiasts. It features a vibrant aurora borealis-inspired design, capturing the ethereal beauty of the
-        northern lights. The deskpad measures 900x400mm, providing ample space for both keyboard and mouse. Its surface
-        offers a smooth, precise tracking experience for optical and laser mice. The pad has a non-slip rubber base to
-        prevent movement during intense gaming sessions. Made with high-quality materials, it's durable and easy to
-        clean. This LTT-branded accessory adds both functionality and style to any desktop setup.
-      </p>
-    </div>
-  </div>
-
-
-  <footer>
-    <p>&copy; Kevin Tran 2024. All rights reserved.</p>
   </footer>
 
+  
 
   <!---------------------------------------------->
   <!-- Your own JavaScript functions go here    -->
   <!---------------------------------------------->
 
   <!-- Link to scripts of your own -->
-  <!-- <script src="./scripts/script.js"></script> -->
-
+  <script src="./scripts/firebaseAPI_BBY11.js"></script>
+  <script src="./scripts/skeleton.js"></script>
+  <script src="./scripts/index.js"></script>
+  <nav id="footerPlaceholder"></nav>
 </body>
 
 </html>
