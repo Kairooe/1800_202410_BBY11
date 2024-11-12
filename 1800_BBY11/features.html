@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Go Quest</title>
+    <meta name="Go Quest" content="BBY11 1800 project.">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <nav id="navbarPlaceholder"></nav>
+    
+    <div class="container">
+        <h1>Quest Maker</h1>
+        <form>
+            <fieldset class="mb-3" id="questFields">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="titleInput" class="form-control" placeholder="Enter the Quest's title.">
+                </div>
+                <div class="form-group">
+                    <label>Tags</label>
+                    <input type="text" id="tagInput" class="form-control" placeholder="Enter the Quest's tags, spaces between each.">
+                </div>
+
+                <div class="form-group">
+                    <h1>Reward type</h1>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="Money" id="rewardMoneyRadio">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Money
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="None" id="rewardNoneRadio">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      None (Volunteering)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="Other" id="rewardOtherRadio">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Other
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label>Reward</label>
+                    <input type="text" id="rewardInput" class="form-control" placeholder="Enter the Quest's reward">
+                </div>
+
+                <div class="form-group">
+                    <label>Estimated Time</label>
+                    <input type="text" id="timeInput" class="form-control" placeholder="Time in hours">
+                </div>
+
+                <div class="form-group">
+                    <label>Details</label>
+                    <input type="text" id="detailsInput" class="form-control" pattern="[0-9]" placeholder="What does this quest entail?">
+                </div>
+
+
+
+
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-info" onclick="createQuest()">Create</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="lister">
+        <label>Search</label>
+        <input type="text" id="tags" placeholder="put in tags ur looking for (blank is all)">
+        <button type="button" class="btn btn-info" onclick="searchQuests()">Search</button>
+
+        <div id="lista">
+
+
+        </div>
+    </div>
+
+
+    <template id="listings">
+        <h1 class="titleAhh">a</h1>
+        <p class="detailsAhh">b</p>
+        <a class="eachQuestAhh">c</a>
+    </template>
+
+
+
+    <nav id="footerPlaceholder"></nav>
+    <script src="./scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/features.js"></script>
+
+</body>
+
+</html>
