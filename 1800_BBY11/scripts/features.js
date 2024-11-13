@@ -73,14 +73,14 @@ function searchQuests() {
             allQuest.forEach(doc => {
                 tags = doc.data().tags;
                 display = false;
-                alert(display)
+                //alert(display)
                 if (tags && !questTags.length) {
-                    alert("tags exist!")
+                    //alert("tags exist!")
                     display = questTags.every((tag) => tags.includes(tag))
                 } else {
                     display = false;
                 }
-                alert(display)
+                //alert(display)
 
                 if (display) {
                     let newListing = listingsTemplate.content.cloneNode(true);
