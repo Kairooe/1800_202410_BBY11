@@ -196,6 +196,71 @@ a:hover {
   }
 }
 
+/*-------------------------------------
+* Footer
+*-------------------------------------*/
+footer {
+  background-color: #2d3748; /* Dark background color */
+  color: #ffffff; /* White text color */
+  padding: 20px 0;
+  border-top: 1px solid #444;
+}
+
+footer p {
+  margin: 0;
+  color: #ffffff;
+}
+
+footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ccc; /* Light gray on hover */
+  text-decoration: underline;
+}
+
+footer .footer-content {
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Add spacing between elements */
+}
+
+footer .footer-content div,
+footer p {
+  text-align: left;
+}
+
+footer svg {
+  fill: #ffffff;
+  width: 40px;
+  height: 32px;
+}
+
+/**
+*Profile Pic
+*/
+
+/* Centering the profilePic div */
+.profilePic {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Optional: Adds space above */
+  margin-bottom: 20px; /* Optional: Adds space below */
+}
+
+/* Styling the image inside profilePic */
+.profilePic img {
+  width: 150px; /* Adjust size as needed */
+  height: 150px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover;
+  border: 2px solid #ddd; /* Optional: Adds a light border around the image */
+}
+
 /* -----------------------favoraites CSS------------------------- */
 
 .header {
