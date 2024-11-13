@@ -1,4 +1,4 @@
-var currentUserID;  
+var currentUserID;
 
 function getUser() {
     firebase.auth().onAuthStateChanged(user => {
@@ -37,20 +37,20 @@ function createQuest() {
         questTitle = document.getElementById('titleInput').value;
         questPay = document.getElementById('rewardInput').value;
         questPayType = document.querySelector('input[name="rewardTypeInput"]:checked').value;
-        questETA = document.getElementById('timeInput').value.replace(/[^0-9]/,'');
+        questETA = document.getElementById('timeInput').value.replace(/[^0-9]/, '');
         questDetails = document.getElementById('detailsInput').value;
 
         if (questPayType === 'Money') {
-            questPay = questPay.replace(/[^\.0-9]/g,'') + "$";
+            questPay = questPay.replace(/[^\.0-9]/g, '') + "$";
         } else if (questPayType == "None") {
             questPay = "N/A";
         }
     }
-    catch(error) {
+    catch (error) {
         console.log("Whoopsy!", error.message);
         return
     }
-    
+
     db.collection("quests").doc().set({
         user_id: currentUserID,
         date_created: Date.now(),
@@ -65,34 +65,36 @@ function createQuest() {
 }
 
 function searchQuests() {
+    document.getElementById("lista").innerHTML = "";
     listingsTemplate = document.getElementById("listings");
     questTagsRaw = document.getElementById('tags').value;
     questTags = questTagsRaw.split(" ").map(capitalizeFirstLetter).filter(item => item);
 
     db.collection("quests").get().then(allQuest => {
-            allQuest.forEach(doc => {
-                tags = doc.data().tags;
-                display = false;
-                alert(display)
-                if (tags && !questTags.length) {
-                    alert("tags exist!")
-                    display = questTags.every((tag) => tags.includes(tag))
-                } else {
-                    display = false;
-                }
-                alert(display)
+        allQuest.forEach(doc => {
+            tags = doc.data().tags;
+            display = false;
+            if (tags && questTags.length) {
+                display = questTags.every((tag) => tags.includes(tag))
+            } else if (!questTags.length) {
+                display = true;
+            }
 
-                if (display) {
-                    let newListing = listingsTemplate.content.cloneNode(true);
+            if (display) {
 
-                    newListing.querySelector('.titleAhh').innerHTML = doc.data().title;
-                    newListing.querySelector('.detailsAhh').innerHTML = doc.data().details;
-                    newListing.querySelector('.eachQuestAhh').innerHTML = `Go to ${db.collection("users").get(doc.data().user_id).name}'s quest!`;
-                    newListing.querySelector('.eachQuestAhh').href = `eachQuest.html?docID=${doc.id}`;
+                let newListing = listingsTemplate.content.cloneNode(true);
 
-                    document.getElementById("lista").appendChild(newListing)
+                newListing.querySelector('.titleAhh').innerHTML = doc.data().title;
+                newListing.querySelector('.detailsAhh').innerHTML = doc.data().details;
+                newListing.querySelector('.eachQuestAhh').innerHTML = `Inspect quest!`;
+                newListing.querySelector('.eachQuestAhh').href = `eachQuest.html?docID=${doc.id}`;
 
-                }
-            })
+            
+                document.getElementById("lista").appendChild(newListing)
+                
+                
+            }
+
         })
+    })
 }
