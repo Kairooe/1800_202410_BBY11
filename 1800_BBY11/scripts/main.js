@@ -102,6 +102,11 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector('.card-image').src = `./images/${code}.jpg`; //Example: NV01.jpg
                 
                 newcard.querySelector('a').href = "eachQuest.html?docID="+docID;
+                newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+
+                newcard.querySelector('i').onclick = () => saveBookmark(docID);
+
+              
 
                 
                 //Optional: give unique ids to all elements for future use
@@ -118,3 +123,59 @@ function displayCardsDynamically(collection) {
 }
 
 displayCardsDynamically("quests");  //input param is the name of the collection
+
+function saveBookmark(questDocID) {
+    // Manage the backend process to store the questDocID in the database, recording which hike was bookmarked by the user.
+    currentUser.update({
+        // Use 'arrayUnion' to add the new bookmark ID to the 'bookmarks' array.
+        // This method ensures that the ID is added only if it's not already present, preventing duplicates.
+        bookmarks: firebase.firestore.FieldValue.arrayUnion(questDocID)
+    })
+        // Handle the front-end update to change the icon, providing visual feedback to the user that it has been clicked.
+        .then(function () {
+            console.log("bookmark has been saved for" + questDocID);
+            let iconID = 'save-' + questDocID;
+            //console.log(iconID);
+            //this is to change the icon of the hike that was saved to "filled"
+            document.getElementById(iconID).innerText = 'bookmark';
+        });
+}
+
+function updateBookmark(questDocID) {
+    //  alert("Inside update Bookmark");
+
+    currentUser.get().then(doc => {
+        console.log(doc.data());
+        currentBookmarks = doc.data().bookmarks;
+
+        if (currentBookmarks && currentBookmarks.includes(questDocID)) {
+            console.log(questDocID);
+            currentUser.update({
+                bookmarks: firebase.firestore.FieldValue.arrayRemovw(questDocID),
+            })
+                .then(function () {
+                    console.log("The Bookmark is removed for" + currentUser);
+                    let iconID = "save-" + questDocID;
+                    comsole.log(iconID);
+                    document.getElementById(iconID);
+                    document.getElementById(iconID).innerText = "bookemar_border";
+                })
+        } else {
+            currentUser.set({
+                bookmarks: firebaseConfig.firestore.FieldValue.arrayUnion(questDocID),
+            },
+                {
+                    merge: true
+                })
+                .then(function () {
+                    console.log("The Bookmark is removed for" + currentUser);
+                    let iconID = "save-" + questDocID;
+                    comsole.log(iconID);
+                    document.getElementById(iconID).innerText = "bookemark";
+                })
+
+
+
+        }
+    })
+}
