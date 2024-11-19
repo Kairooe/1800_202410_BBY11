@@ -54,7 +54,7 @@ function displayCardsDynamically(collection) {
         .then(allQuest => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allQuest.forEach(doc => { //iterate thru each doc
-                title = doc.data().name;       // get value of the "name" key
+                title = doc.data().title;       // get value of the "name" key
                 details = doc.data().details;  // get value of the "details" key
                 questTags = doc.data().tags;
                 code = doc.data().code;
@@ -66,7 +66,12 @@ function displayCardsDynamically(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-image').src = `./images/${code}.jpg`;
+                if (code) {
+                    newcard.querySelector('.card-image').src = `./images/${code}.jpg`;
+                } else {
+                    newcard.querySelector('.card-image').src = `./images/Quest.png`;
+                }
+                
 
                 let tags = ""
                 questTags.forEach((val) => {
