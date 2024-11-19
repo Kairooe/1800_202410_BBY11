@@ -306,6 +306,7 @@ footer .footer-content {
   border-radius: 15px;
 }
 
+
 .user-message {
   background-color: #b22222; /* Wax seal red */
   color: #fff;
@@ -353,4 +354,6 @@ footer .footer-content {
   background-color: #8b0000; /* Darker red */
 }
 
-
+.material-icons{
+  cursor: pointer;
+}
