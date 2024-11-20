@@ -37,14 +37,17 @@ function createQuest() {
         questTitle = document.getElementById('titleInput').value;
         questPay = document.getElementById('rewardInput').value;
         questPayType = document.querySelector('input[name="rewardTypeInput"]:checked').value;
-        questETA = document.getElementById('timeInput').value.replace(/[^0-9]/, '');
+        questETA = document.getElementById('timeInput').value.replace(/[^0-9]/g, '');
         questDetails = document.getElementById('detailsInput').value;
 
         if (questPayType === 'Money') {
             questPay = questPay.replace(/[^\.0-9]/g, '') + "$";
         } else if (questPayType == "None") {
-            questPay = "N/A";
+           
+           
+            questPay = "Volunteering";
         }
+        
     }
     catch (error) {
         console.log("Whoopsy!", error.message);

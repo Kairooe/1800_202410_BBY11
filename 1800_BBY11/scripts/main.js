@@ -54,10 +54,11 @@ function displayCardsDynamically(collection) {
         .then(allQuest => {
             //var i = 1;  //Optional: if you want to have a unique ID for each hike
             allQuest.forEach(doc => { //iterate thru each doc
-                title = doc.data().name;       // get value of the "name" key
+                title = doc.data().title;       // get value of the "name" key
                 details = doc.data().details;  // get value of the "details" key
                 questTags = doc.data().tags;
                 code = doc.data().code;
+                date = doc.data().date_created;
                 docID = doc.id;
                 newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
@@ -66,14 +67,22 @@ function displayCardsDynamically(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-text').innerHTML = details;
-                newcard.querySelector('.card-image').src = `./images/${code}.jpg`;
+                if (code) {
+                    newcard.querySelector('.card-image').src = `./images/${code}.jpg`;
+                } else {
+                    newcard.querySelector('.card-image').src = `./images/Quest.png`;
+                }
+                
 
                 let tags = ""
                 questTags.forEach((val) => {
                     tags += `<span style="white-space:pre;background:red;border-radius:10%;display:inline-block">  ${val}  </span><span style="white-space:pre;">  </span>`
                 })
 
+                let eta = doc.data().estimated_time
                 
+                newcard.querySelector('.card-pay').innerHTML = doc.data().pay
+                newcard.querySelector('.card-time').innerHTML = doc.data().estimated_time + ` hour${eta > 1 ? "s" : ""}`;
 
                 newcard.querySelector('.card-tags').innerHTML = tags;
 
