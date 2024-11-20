@@ -57,8 +57,8 @@ function displayCardsDynamically(collection) {
                 title = doc.data().title;       // get value of the "name" key
                 details = doc.data().details;  // get value of the "details" key
                 questTags = doc.data().tags;
-                code = doc.data().code;
                 date = doc.data().date_created;
+                thumbnail = doc.data().thumbnail;
                 docID = doc.id;
                 newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
@@ -67,10 +67,11 @@ function displayCardsDynamically(collection) {
                 //update title and text and image
                 newcard.querySelector('.card-title').innerHTML = title;
                 newcard.querySelector('.card-text').innerHTML = details;
-                if (code) {
-                    newcard.querySelector('.card-image').src = `./images/${code}.jpg`;
-                } else {
+                if (!thumbnail) {
                     newcard.querySelector('.card-image').src = `./images/Quest.png`;
+                    
+                } else {
+                    newcard.querySelector('.card-image').src = thumbnail;
                 }
                 
 
