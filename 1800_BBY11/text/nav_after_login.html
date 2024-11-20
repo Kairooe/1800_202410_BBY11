@@ -1,53 +1,63 @@
 <nav class="navbar fixed-top custom-navbar">
-    <div class="container-fluid">
-        <div class="profile">
-            <img src="./images/iconamoon--profile-fill.png" alt="Profile Icon" class="profile-icon">
-            <h1 id="username"> <span id="userName">User</span> </h1>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./main.html">Home</a>
-                <!-- <a class="nav-link active" aria-current="page" onclick="toHome()">Home</a> -->
+  <div class="container-fluid">
+    <a href="./profile.html" class="profile-button">
+      <div class="profile">
+          <img src="./images/iconamoon--profile-fill.png" alt="Profile Icon" class="profile-icon">
+          <h1 id="username"><span id="userName">User</span></h1>
+      </div>
+  </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./main.html">Home</a>
+            <!-- <a class="nav-link active" aria-current="page" onclick="toHome()">Home</a> -->
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./favourites.html">Favourites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/1800_BBY11/setting.html"> Setting</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/1800_BBY11/features.html"> Create Quest</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+              <!-- <li><a class="dropdown-item" onclick="toProfile()">Profile</a></li> -->
+              <li><a class="dropdown-item" href="./history.html">History</a></li>
+              <li>
+                <hr class="dropdown-divider">
               </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="toFavourites()"aria-current="page" href="./favourites.html" >Favourites</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/1800_BBY11/setting.html"> Setting</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Profile
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
-                  <!-- <li><a class="dropdown-item" onclick="toProfile()">Profile</a></li> -->
-                  <li><a class="dropdown-item" href="./history.html">History</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="./messaging.html">Messages</a></li>
-                </ul>
-              </li>
+              <li><a class="dropdown-item" href="./messaging.html">Messages</a></li>
             </ul>
-            <form class="d-flex mt-3" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          </li>
+        </ul>
+
+        <div id="lister" class="search-container">
+          <label for="tags" class="search-label">Search</label>
+          <div class="search-bar">
+            <input type="text" id="tags" class="form-control search-input"
+              placeholder="Put in tags you're looking for (blank is all)">
+            <button type="button" class="btn btn-primary search-button btn-info"
+              onclick="searchQuests()">Search</button>
           </div>
+          <div id="lista"></div>
         </div>
+
+      </div>
     </div>
-  </nav>
-  
-
-
-  
+  </div>
+</nav>
