@@ -32,6 +32,16 @@ function createQuest() {
         return
     }
 
+        // Get the form element
+        const form = document.querySelector('form');
+    
+        // Check if form is valid
+        if (!form.checkValidity()) {
+            // Trigger browser's default validation UI
+            form.reportValidity();
+            return;
+        }
+
     try {
         questTagsRaw = document.getElementById('tagInput').value;
         questTags = questTagsRaw.split(" ").map(capitalizeFirstLetter).filter(item => item);
@@ -70,6 +80,14 @@ function createQuest() {
         details: questDetails,
         thumbnail: questThumbnail
     })
+
+    .then(() => {
+        alert("Quest created successfully!");
+        form.reset(); // Optional: clear the form
+    })
+    .catch((error) => {
+        alert("Error creating quest: " + error.message);
+    });
 }
 
 function searchQuests() {
