@@ -466,3 +466,10 @@ footer .footer-content {
   margin: 0; /* Remove margin */
 }
 
+.form-group ::placeholder {
+opacity: 0.6;
+}
+
+  .form-group .required-astrisk {
+  color: red;
+}

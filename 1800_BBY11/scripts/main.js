@@ -77,7 +77,7 @@ function displayCardsDynamically(collection) {
 
                 let tags = ""
                 questTags.forEach((val) => {
-                    tags += `<span style="white-space:pre;background:red;border-radius:10%;display:inline-block">  ${val}  </span><span style="white-space:pre;">  </span>`
+                    tags += `<span style="white-space:pre;background:#c75146;border-radius:10%;display:inline-block">  ${val}  </span><span style="white-space:pre;">  </span>`
                 })
 
                 let eta = doc.data().estimated_time
