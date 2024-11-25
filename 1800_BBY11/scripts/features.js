@@ -32,19 +32,24 @@ function createQuest() {
         return
     }
 
-        // Get the form element
-        const form = document.querySelector('form');
+    // Get the form element
+    const form = document.querySelector('form');
     
-        // Check if form is valid
-        if (!form.checkValidity()) {
-            // Trigger browser's default validation UI
-            form.reportValidity();
-            return;
-        }
+    // Check if form is valid
+    if (!form.checkValidity()) {
+        // Trigger browser's default validation UI
+        form.reportValidity();
+        return;
+    }
 
     try {
         questTagsRaw = document.getElementById('tagInput').value;
-        questTags = questTagsRaw.split(" ").map(capitalizeFirstLetter).filter(item => item);
+        // Split by comma, trim whitespace, capitalize first letters, remove empty tags
+        questTags = questTagsRaw.split(',')
+            .map(tag => tag.trim())
+            .map(capitalizeFirstLetter)
+            .filter(item => item);
+        
         questTitle = document.getElementById('titleInput').value;
         questPay = document.getElementById('rewardInput').value;
         questPayType = document.querySelector('input[name="rewardTypeInput"]:checked').value;
@@ -55,19 +60,18 @@ function createQuest() {
         if (questPayType === 'Money') {
             questPay = questPay.replace(/[^\.0-9]/g, '') + "$";
         } else if (questPayType == "None") {
-
-
             questPay = "Volunteering";
         }
-
     }
     catch (error) {
         console.log("Whoopsy!", error.message);
         return
     }
+    
     if (!base64img) {
         base64img = "";
     }
+    
     db.collection("quests").doc().set({
         user_id: currentUserID,
         date_created: Date.now(),
