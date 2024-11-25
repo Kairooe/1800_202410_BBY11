@@ -1,0 +1,37 @@
+/*-------------------------------------
+* Footer
+*-------------------------------------*/
+footer {
+    background-color: #4b3b2f;
+    /* Matches the navbar */
+    color: #d4af37;
+    padding: 20px 0;
+    border-top: 3px solid #8c6a44;
+    text-align: center;
+    margin-top: auto;
+    /* Ensures footer sticks to the bottom */
+}
+
+footer p {
+    margin: 0;
+    color: #d4af37;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+footer a {
+    color: #f7d883;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
