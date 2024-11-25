@@ -437,7 +437,7 @@ footer .footer-content {
   text-decoration: none; /* Removes underline from the link */
 }
 
-.profile {
+.nav-button {
   display: flex;
   align-items: center;
   /* background-color: #e4d3b3; Soft parchment color */
@@ -448,21 +448,13 @@ footer .footer-content {
   cursor: pointer; /* Adds pointer cursor to indicate clickability */
 }
 
-.profile:hover {
+.nav-button:hover {
   transform: translateY(-3px); /* Slight lift effect on hover */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
 }
 
-.profile-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #8c6a44; /* Gold border */
-}
 
-.profile h1 {
+.nav-button h1 {
   font-family: 'Cinzel Decorative', serif;
   color: #4b3b2f; /* Dark wood color */
   margin: 0; /* Remove margin */
