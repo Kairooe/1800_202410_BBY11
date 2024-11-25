@@ -125,9 +125,9 @@ a:hover {
 }
 
 /*-------------------------------------
-* Profile Section Styling
+* Logo home Section Styling
 *-------------------------------------*/
-.profile {
+.Logo-Home {
   display: flex;
   align-items: center;
   background-color: #e4d3b3; /* Soft parchment color */
@@ -135,14 +135,16 @@ a:hover {
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
-.profile-icon {
-  width: 50px;
-  height: 50px;
-  margin-right: 10px;
+
+.logo-icon{
+  width: 20%;
+  height: 20%;  
+  margin-right: 10%;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #8c6a44;
+  border: 2px solid #8c6a44; /* Gold border */
 }
+
 
 /*-------------------------------------
 * Footer
@@ -438,10 +440,10 @@ footer .footer-content {
 .profile {
   display: flex;
   align-items: center;
-  background-color: #e4d3b3; /* Soft parchment color */
+  /* background-color: #e4d3b3; Soft parchment color */
   padding: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); */
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer; /* Adds pointer cursor to indicate clickability */
 }
