@@ -48,24 +48,24 @@
                     <h1>Reward type</h1>
                 </div>
 
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="Money" id="rewardMoneyRadio" required>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Money
-                    </label>
+                <div class="form-group">
+                    <label for="rewardTypeInput" class="required">Reward Type</label>
+                    <div class="radio-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rewardTypeInput" value="Money" id="rewardMoneyRadio" required>
+                            <label class="form-check-label" for="rewardMoneyRadio">Money</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rewardTypeInput" value="None" id="rewardNoneRadio" required>
+                            <label class="form-check-label" for="rewardNoneRadio">None (Volunteering)</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="rewardTypeInput" value="Other" id="rewardOtherRadio" required>
+                            <label class="form-check-label" for="rewardOtherRadio">Other</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="None" id="rewardNoneRadio" required>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      None (Volunteering)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="rewardTypeInput" value="Other" id="rewardOtherRadio" required>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      Other
-                    </label>
-                </div>
+                
 
                 <div class="form-group">
                     <label>Reward</label>
@@ -74,7 +74,7 @@
 
                 <div class="form-group">
                     <label>Estimated Time (Hour)</label>
-                    <input type="number" id="timeInput" class="form-control" placeholder="1" required>
+                    <input type="text" id="timeInput" class="form-control" placeholder="1 Hour" required>
                 </div>
 
                 <div class="form-group">
@@ -84,11 +84,9 @@
 
                 <div class="form-group">
                     <label>Thumbnail</label> <br>
-                    <input type="file" id="thumbnail"/> <br>
+                    <input type="file" id="thumbnail" required> <br>
                     <img id="myImg" src="#" alt="your image" height="auto" width="100%" />
                 </div>
-
-
 
 
             </fieldset>

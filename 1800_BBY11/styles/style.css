@@ -470,6 +470,19 @@ footer .footer-content {
 opacity: 0.6;
 }
 
-  .form-group .required-astrisk {
-  color: red;
+/* Optional: Focus styling for radio buttons */
+.radio-group input[type="radio"]:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+
+/* For all labels that have a required input, including file inputs */
+/* For all required fields including thumbnail */
+.form-group label:has(+ input[required])::after,
+.form-group label:has(+ .form-control[required])::after,
+.required::after,
+.form-group label:has(+ br + input[required])::after {
+    content: " *";
+    color: red;
 }
