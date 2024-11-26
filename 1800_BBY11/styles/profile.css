@@ -73,7 +73,7 @@ body {
 }
 
 .card {
-    background-color: #fff;
+    background: #fdf5e6;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -126,4 +126,14 @@ body {
 
 .card .material-icons:hover {
     color: #000;
+}
+
+/* Pin Styling */
+.pin {
+    width: 50px;
+    position: absolute;
+    top: -15px; /* Position the pin above the card */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for true centering */
+    z-index: 2; /* Ensure it stays above the card */
 }

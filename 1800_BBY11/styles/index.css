@@ -1,0 +1,12 @@
+.logo img {
+    max-width: 200px; /* Sets the maximum width for the logo */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Ensures it behaves like a block element */
+    margin: 0 auto; /* Centers the logo inside its container */
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        max-width: 150px; /* Make the logo smaller on smaller screens */
+    }
+}

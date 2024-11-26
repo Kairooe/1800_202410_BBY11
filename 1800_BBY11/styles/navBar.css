@@ -1,106 +1,4 @@
-/* .search-container {
-    background-color: #fdf5e6;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    text-align: center;
-}
 
-.Logo-Home {
-    display: flex;
-    align-items: center;
-    background-color: #e4d3b3;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.logo-icon {
-    width: 20%;
-    height: 20%;
-    margin-right: 10%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #8c6a44;
-
-}
-
-#navbarPlaceholder {
-    background-color: #4b3b2f; 
-    color: #d4af37; 
-    padding: 15px;
-    text-align: center;
-    border-bottom: 3px solid #8c6a44;
-  }
-  
-  .custom-navbar {
-    background-color: #fdf5e6; 
-    color: #4b3b2f;
-    border-bottom: 3px solid #8c6a44;
-  }
-  
-  
-  a {
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  a:hover {
-    color: #f7d883; 
-    text-decoration: underline;
-  }
-
-  .profile-button {
-    display: inline-block; 
-    text-decoration: none;
-  }
-  
-  .nav-button {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-radius: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer; 
-  }
-  
-  .nav-button:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5); 
-  }
-  
-  
-  .nav-button h1 {
-    font-family: 'Cinzel Decorative', serif;
-    color: #4b3b2f;
-    margin: 0; 
-  }
-  
-  .form-group ::placeholder {
-  opacity: 0.6;
-  } */
-
-/* 
-  .logo-button {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-  
-  .logo-icon {
-    width: 15%;
-    height: 15%;
-    margin-right: 10px;
-  }
-
-  .logo-button:hover {
-    transform: translateY(-3px); 
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-  } */
-
-  /* Updated styles/navbar.css */
-/* Updated styles/navbar.css */
 body {
   margin: 0;
   padding: 0;
@@ -124,7 +22,8 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
-  margin-right: 20px; /* Space between logo and nav-links */
+  max-height: 60px; /* Ensure the navbar does not get too tall */
+  padding: 5px;
 }
 
 .logo-home {
@@ -133,9 +32,11 @@ body {
 }
 
 .logo-icon {
-  width: 10vw; /* Increased size for a larger logo */
-  height: 10vh;
-  margin-right: 10px; /* Space between logo and text */
+  width: 100%; /* The logo will take up the full width of its container */
+  max-width: 250px; /* Set a max width to prevent it from getting too large */
+  height: auto; /* Maintain the aspect ratio */
+  margin-right: 10px; /* Add spacing between logo and text */
+  display: block; /* Ensures proper resizing */
 }
 
 .nav-links {
@@ -146,13 +47,22 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #000; /* Black */
+  color: #000; /* Black text */
   font-size: 16px;
   font-weight: normal;
-  padding: 1% 1% 1% 1%;
+  padding: 5% 15%; /* Adjust padding as needed */
+  border-radius: 15%; /* Makes the links circular (if the height and width are equal) */
+  display: inline-block; /* Ensures the border wraps correctly */
+  text-align: center; /* Center-align the text inside */
 }
 
-.nav-link:hover,.logo-button:hover {
+.nav-link:hover {
+  background-color: #f0f0f0; /* Optional: Adds a background on hover */
+  color: #333; /* Optional: Darker text on hover */
+  transform: scale(1.1); /* Slight enlargement on hover for effect */
+}
+
+.logo-button:hover {
   text-decoration: underline;
   transform: translateY(-3px); 
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
