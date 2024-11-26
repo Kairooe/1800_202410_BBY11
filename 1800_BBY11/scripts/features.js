@@ -58,7 +58,7 @@ function createQuest() {
         questThumbnail = base64img;
 
         if (questPayType === 'Money') {
-            questPay = questPay.replace(/[^\.0-9]/g, '') + "$";
+            questPay =  "$" + questPay.replace(/[^\.0-9]/g, '') ;
         } else if (questPayType == "None") {
             questPay = "Volunteering";
         }
