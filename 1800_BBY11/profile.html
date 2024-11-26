@@ -34,8 +34,9 @@
     <!-------------------------------------------->
     <!-- Other libraries and styles of your own -->
     <!-------------------------------------------->
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styleNew.css">
+    <link rel="stylesheet" href="./styles/profile.css">
 
 </head>
 
@@ -47,35 +48,59 @@
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
 
-    <!-- the body of your page goes here -->
-    <!-- stuff -->
-    <div class="container">
-        <h1>User Profile </h1>
-        <div class="profilePic">
-            <img src="/images/profile-default.jpeg" alt="Default User Icon">
+    <!-- User Profile Section -->
+    <div class="container profile-container text-center">
+        <div class="profile-pic">
+            <img src="/1800_BBY11/images/iconamoon--profile-fill.png" alt="User Profile Pic">
         </div>
-        <form>
-            <fieldset class="mb-3" id="personalInfoFields" disabled>
-                <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
-                </div>
-                <div class="form-group">
-                    <label>School</label>
-                    <input type="text" id="schoolInput" class="form-control" placeholder="Enter your school">
-                </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
-                </div>
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
-                <button type="button" class="btn btn-secondary" onclick="editUserInfo()" >Edit</button>
-                <span style="width: 10px"></span>
-                <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
-            </div>
-        </form>
+        <h2 class="user-name">User Name</h2>
+        <button class="edit-profile btn btn-outline-secondary">
+            <a href="/1800_BBY11/Setting.html">Edit</a>
+        </button>
     </div>
+
+    <!-- User Rating Section -->
+    <div class="container rating-container text-center">
+        <p class="rating-title">User Rating:</p>
+        <div class="rating-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">☆</span>
+        </div>
+    </div>
+
+    <div class="container job-container text-center">
+        <h3>Previous Job:</h3>
+        <div class="row previous-jobs" id="jobCardsContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+    </div>
+    
+    <template id="questCardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem">
+            <img class="card-image card-img-top" src=" ..." alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-tags"></p>
+                <div class="card-quickinfo">
+                    <p style="float:left" class="card-time"></p>
+                    <p style="float:right" class="card-pay"></p>
+                </div>
+                <br />
+                <hr>
+                <p class="card-text">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                </p>
+                <a class="btn btn-primary card-href">Read more...</a>
+                <i class="material-icons">bookmark_border</i>
+            </div>
+        </div>
+    </template>
+
+
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
@@ -86,9 +111,10 @@
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="/1800_BBY11/scripts/profile.js"></script>
-    
+    <script src="/1800_BBY11/scripts/previousJob.js"></script>
 
-    
+
+
 
 </body>
 
