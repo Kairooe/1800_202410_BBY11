@@ -1,12 +1,32 @@
 .logo img {
-    max-width: 200px; /* Sets the maximum width for the logo */
-    height: auto; /* Maintains the aspect ratio */
+    max-width: 900px; /* Sets the maximum width for the logo */
+    height: 400px; /* Maintains the aspect ratio */
     display: block; /* Ensures it behaves like a block element */
     margin: 0 auto; /* Centers the logo inside its container */
+    margin-top: 165px;
 }
+
+.container #loginButton{
+    background-color: #b22222;
+    color: white;
+    border-color: #8b0000;
+    height: auto;
+    width: 150px;
+    font-size: 30px;
+  }
 
 @media (max-width: 768px) {
     .logo img {
-        max-width: 150px; /* Make the logo smaller on smaller screens */
+        max-width: 250px; /* Make the logo smaller on smaller screens */
+        height: auto;
     }
+
+    .container #loginButton{
+        background-color: #b22222;
+        color: white;
+        border-color: #8b0000;
+        height: auto;
+        width: 80px;
+        font-size: 15px;
+      }
 }

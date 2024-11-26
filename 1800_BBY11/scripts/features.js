@@ -94,17 +94,14 @@ function createQuest() {
 
     Swal.fire({
         title: "Quest created successfully!",
-        // text: "Press the button to go home!",
         icon: "success",
-        showCancelButton: true,
         confirmButtonText: "Go Home",
-        reverseButtons: true,
         customClass: {
             confirmButton: 'swal2-confirm',
         }
     }).then((result) => {
-        if (result.isDismissed) {
-            window.location.href = "main.html";
+        if (result.isConfirmed) {  // Check if the confirm button was clicked
+            window.location.href = "main.html";  // Redirect to main.html
         }
     });
 }
