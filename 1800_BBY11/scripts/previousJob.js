@@ -49,3 +49,56 @@ document.addEventListener("DOMContentLoaded", function () {
         jobCardsContainer.appendChild(card);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Example data for quests posted by the user
+    const postedQuestsData = [
+        {
+            title: "Post 1",
+            image: "https://via.placeholder.com/150",
+            tags: "Adventure, Mystery",
+            time: "5 hours",
+            pay: "$150",
+            description: "Embark on a thrilling adventure to uncover hidden treasures.",
+            href: "#",
+        },
+        {
+            title: "Post 2",
+            image: "https://via.placeholder.com/150",
+            tags: "Combat, Action",
+            time: "3 hours",
+            pay: "$120",
+            description: "Join forces to fight off a band of raiders threatening the town.",
+            href: "#",
+        },
+        {
+            title: "Post 3",
+            image: "https://via.placeholder.com/150",
+            tags: "Puzzle, Exploration",
+            time: "2 hours",
+            pay: "$80",
+            description: "Solve the puzzles guarding the ancient ruins.",
+            href: "#",
+        },
+    ];
+
+    // Get the template and the container for posted quests
+    const postedQuestsTemplate = document.getElementById("questPostedCardTemplate");
+    const postedQuestsContainer = document.getElementById("postedQuestsContainer");
+
+    // Populate the container with quest cards
+    postedQuestsData.forEach((quest) => {
+        const card = postedQuestsTemplate.content.cloneNode(true);
+
+        card.querySelector(".card-title").textContent = quest.title;
+        card.querySelector(".card-image").src = quest.image;
+        card.querySelector(".card-tags").textContent = quest.tags;
+        card.querySelector(".card-time").textContent = quest.time;
+        card.querySelector(".card-pay").textContent = quest.pay;
+        card.querySelector(".card-text").textContent = quest.description;
+        card.querySelector(".card-href").href = quest.href;
+
+        postedQuestsContainer.appendChild(card);
+    });
+});
+
