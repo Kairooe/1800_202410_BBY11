@@ -86,11 +86,26 @@ function createQuest() {
     })
 
     .then(() => {
-        alert("Quest created successfully!");
         form.reset(); // Optional: clear the form
     })
     .catch((error) => {
         alert("Error creating quest: " + error.message);
+    });
+
+    Swal.fire({
+        title: "Quest created successfully!",
+        // text: "Press the button to go home!",
+        icon: "success",
+        showCancelButton: true,
+        confirmButtonText: "Go Home",
+        reverseButtons: true,
+        customClass: {
+            confirmButton: 'swal2-confirm',
+        }
+    }).then((result) => {
+        if (result.isDismissed) {
+            window.location.href = "main.html";
+        }
     });
 }
 
