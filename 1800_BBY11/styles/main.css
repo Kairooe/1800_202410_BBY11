@@ -22,3 +22,44 @@
     transform: translateY(-5px);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
+
+/* Sticky Circle Button */
+.create-quest-button {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    z-index: 1000; /* Ensures it is above other content */
+}
+
+.btn-circle {
+    width: 72px; /* Increased by 20% from 60px */
+    height: 72px; /* Increased by 20% from 60px */
+    border-radius: 50%;
+    background-color: #8c6a44; /* Gold color */
+    color: white;
+    font-size: 28px; /* Slightly increase font size */
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-circle:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-circle:active {
+    transform: scale(0.95); /* Pressed-in effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.material-icons {
+    font-size: 36px; /* Increased icon size */
+    line-height: 1;
+}
+
+
