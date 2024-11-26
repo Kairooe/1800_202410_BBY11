@@ -1,0 +1,15 @@
+.profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0; 
+    border: 10px;
+    border-color: black;
+}
+
+.profile-pic img {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+
+
+}
