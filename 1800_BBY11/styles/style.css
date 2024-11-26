@@ -477,3 +477,17 @@ opacity: 0.6;
   width: auto;
   vertical-align: middle;
 }
+
+.rounded-circle img {
+  width: auto;
+  height: 400px;
+}
+
+.container #loginButton{
+  background-color: #b22222;
+  color: white;
+  border-color: #8b0000;
+  height: auto;
+  width: 150px;
+  font-size: 30px;
+}
