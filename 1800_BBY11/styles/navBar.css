@@ -1,8 +1,3 @@
-@media (max-width: 768px) {
-  .logo-icon {
-      max-width: 40px; /* Slightly smaller on mobile */
-  }
-}
 
 body {
   margin: 0;
@@ -52,13 +47,22 @@ body {
 
 .nav-link {
   text-decoration: none;
-  color: #000; /* Black */
+  color: #000; /* Black text */
   font-size: 16px;
   font-weight: normal;
-  padding: 1% 1% 1% 1%;
+  padding: 5% 15%; /* Adjust padding as needed */
+  border-radius: 15%; /* Makes the links circular (if the height and width are equal) */
+  display: inline-block; /* Ensures the border wraps correctly */
+  text-align: center; /* Center-align the text inside */
 }
 
-.nav-link:hover,.logo-button:hover {
+.nav-link:hover {
+  background-color: #f0f0f0; /* Optional: Adds a background on hover */
+  color: #333; /* Optional: Darker text on hover */
+  transform: scale(1.1); /* Slight enlargement on hover for effect */
+}
+
+.logo-button:hover {
   text-decoration: underline;
   transform: translateY(-3px); 
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
