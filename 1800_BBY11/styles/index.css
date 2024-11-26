@@ -1,3 +1,6 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
 .logo img {
     max-width: 900px; /* Sets the maximum width for the logo */
     height: 400px; /* Maintains the aspect ratio */

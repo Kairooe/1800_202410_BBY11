@@ -35,3 +35,6 @@ footer .footer-content {
     flex-wrap: wrap;
     gap: 20px;
 }
+* {
+    font-family: 'Montserrat', sans-serif;
+}

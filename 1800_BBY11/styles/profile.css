@@ -137,3 +137,6 @@ body {
     transform: translateX(-50%); /* Adjust for true centering */
     z-index: 2; /* Ensure it stays above the card */
 }
+* {
+    font-family: 'Montserrat', sans-serif;
+}

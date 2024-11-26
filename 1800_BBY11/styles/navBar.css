@@ -111,3 +111,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}

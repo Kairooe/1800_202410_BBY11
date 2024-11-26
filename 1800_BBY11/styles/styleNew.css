@@ -100,3 +100,6 @@ body {
     color: #5a4634;
     margin-bottom: 15px;
 }
+* {
+    font-family: 'Montserrat', sans-serif;
+}
