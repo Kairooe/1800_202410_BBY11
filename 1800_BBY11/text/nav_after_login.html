@@ -1,45 +1,32 @@
 <head>
-  <!-- <link rel="stylesheet" href="./styles/style.css"> -->
   <link rel="stylesheet" href="./styles/navbar.css">
 </head>
 
-<nav class="navbar fixed-top custom-navbar">
+<nav class="navbar custom-navbar">
   <div class="container-fluid">
 
+    <!-- Logo -->
     <a href="/1800_BBY11/main.html" class="logo-button">
-      <div class="Logo-Home">
-        <img src="/1800_BBY11/images/Quest.png" alt="logo Icon" class="logo-icon">
-        <h1><span>GO-Quest</span></h1>
+      <div class="logo-home">
+        <img src="/1800_BBY11/images/Go-Quest_logo.png" alt="logo Icon" class="logo-icon">
       </div>
     </a>
 
-    <a href="./profile.html" class="profile-button">
-      <div class="nav-button">
-        <h1 id="profile"><span id="profile">Profile</span></h1>
-      </div>
-    </a>
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a href="./profile.html" class="nav-link">Profile</a>
+      <a href="/1800_BBY11/messaging.html" class="nav-link">Chat</a>
+      <a href="/1800_BBY11/Setting.html" class="nav-link">Setting</a>
+    </div>
 
-    <a href="/1800_BBY11/messaging.html" class="chat-button">
-      <div class="nav-button">
-        <h1 id="Chat"><span id="Chat">Chat</span></h1>
-      </div>
-    </a>
-
-    <a href="/1800_BBY11/Setting.html" class="setting-button">
-      <div class="nav-button">
-        <h1 id="setting"><span id="setting">Setting</span></h1>
-      </div>
-    </a>
-    <!-- search bar -->
-    <div id="lister" class="search-container">
+    <!-- Search Bar -->
+    <div class="search-container">
       <label for="tags" class="search-label">Search</label>
       <div class="search-bar">
-        <input type="text" id="tags" class="form-control search-input"
-          placeholder="Put in tags you're looking for (blank is all)">
-        <button type="button" class="btn btn-primary search-button btn-info" onclick="searchQuests()">Search</button>
+        <input type="text" id="tags" class="search-input" placeholder="Search quests...">
+        <button type="button" class="search-button" onclick="searchQuests()">Search</button>
       </div>
-      <div id="lista"></div>
     </div>
-    <!-- search bar -->
-
+    
+  </div>
 </nav>
