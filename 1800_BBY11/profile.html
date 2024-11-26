@@ -48,22 +48,57 @@
     <!-- our own navbar goes here -->
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="profile-pic">
-        <img src="/1800_BBY11/images/iconamoon--profile-fill.png" alt="User Profile Pic">
-        <P>User Name</P>
+    <!-- User Profile Section -->
+    <div class="container profile-container text-center">
+        <div class="profile-pic">
+            <img src="/1800_BBY11/images/iconamoon--profile-fill.png" alt="User Profile Pic">
+        </div>
+        <h2 class="user-name">User Name</h2>
+        <button class="edit-profile btn btn-outline-secondary">
+            <a href="/1800_BBY11/Setting.html">Edit</a>
+        </button>
+    </div>
+
+    <!-- User Rating Section -->
+    <div class="container rating-container text-center">
+        <p class="rating-title">User Rating:</p>
+        <div class="rating-stars">
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">★</span>
+            <span class="star">☆</span>
+        </div>
+    </div>
+
+    <div class="container job-container text-center">
+        <h3>Previous Job:</h3>
+        <div class="row previous-jobs" id="jobCardsContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
     </div>
     
-    <button class = "Edit-Profile">
-        <a href="/1800_BBY11/Setting.html" class="nav-link">Edit</a>
-    </button>
-
-    <div class = "resume">
-
-    </div>
-
-    <div class = "upcomming-job">
-
-    </div>
+    <template id="questCardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem">
+            <img class="card-image card-img-top" src=" ..." alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-tags"></p>
+                <div class="card-quickinfo">
+                    <p style="float:left" class="card-time"></p>
+                    <p style="float:right" class="card-pay"></p>
+                </div>
+                <br />
+                <hr>
+                <p class="card-text">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                </p>
+                <a class="btn btn-primary card-href">Read more...</a>
+                <i class="material-icons">bookmark_border</i>
+            </div>
+        </div>
+    </template>
 
 
 
@@ -76,6 +111,7 @@
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="/1800_BBY11/scripts/profile.js"></script>
+    <script src="/1800_BBY11/scripts/previousJob.js"></script>
 
 
 

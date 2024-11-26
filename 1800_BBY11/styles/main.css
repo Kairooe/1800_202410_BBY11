@@ -32,19 +32,21 @@
 }
 
 .btn-circle {
-    width: 72px; /* Increased by 20% from 60px */
-    height: 72px; /* Increased by 20% from 60px */
-    border-radius: 50%;
-    background-color: #8c6a44; /* Gold color */
-    color: white;
-    font-size: 28px; /* Slightly increase font size */
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 90px; /* Adjusted size for better proportion */
+    height: 90px; /* Adjusted size for better proportion */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: #d6c4a3; /* Match button background color */
+    color: black; /* Text color */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
+    text-decoration: none; /* Remove underline */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
     cursor: pointer;
+    border: none;
 }
 
 .btn-circle:hover {
@@ -57,9 +59,20 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.material-icons {
-    font-size: 36px; /* Increased icon size */
+/* Styling for "+" */
+.plus-symbol {
+    font-size: 28px; /* Larger size for the "+" symbol */
+    font-weight: bold; /* Bold for emphasis */
     line-height: 1;
 }
+
+/* Styling for "Create Quest" */
+.button-text {
+    font-size: 12px; /* Smaller font size for the text */
+    font-weight: normal; /* Regular weight for text */
+    margin-top: 4px; /* Add spacing below the "+" symbol */
+    line-height: 1.2; /* Proper line spacing for text */
+}
+
 
 
