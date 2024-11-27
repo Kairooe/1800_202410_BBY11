@@ -80,8 +80,29 @@
     </div>
 
     <div class="container job-container text-center">
-        <h3>Previous Job:</h3>
-        <div class="row previous-jobs" id="jobCardsContainer">
+        <h3>Quests Posted:</h3>
+        <div class="row previous-jobs" id="postedQuestsContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div class="container job-container text-center">
+        <h3>Quests Taken:</h3>
+        <div class="row quests-posted" id="takenQuestsContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div class="container job-container text-center">
+        <h3>Quests Watched:</h3>
+        <div class="row quests-posted" id="watchedQuestsContainer">
+            <!-- Cards will be dynamically populated here -->
+        </div>
+    </div>
+
+    <div class="container job-container text-center">
+        <h3>Quest History:</h3>
+        <div class="row quests-posted" id="historyQuestsContainer">
             <!-- Cards will be dynamically populated here -->
         </div>
     </div>
@@ -109,38 +130,6 @@
         </div>
     </template>
 
-    <div class="container job-container text-center">
-        <h3>Quest Posted:</h3>
-        <div class="row quests-posted" id="postedQuestsContainer">
-            <!-- Cards will be dynamically populated here -->
-        </div>
-    </div>
-    
-    <template id="questPostedCardTemplate">
-        <div class="card py-2 mx-2" style="width: 18rem">
-            <img class="pin position-absolute" src="./images/pin.png" alt="pin" />
-            <img class="card-image card-img-top" src=" ..." alt="..." />
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-tags"></p>
-                <div class="card-quickinfo">
-                    <p style="float:left" class="card-time"></p>
-                    <p style="float:right" class="card-pay"></p>
-                </div>
-                <br />
-                <hr>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
-                </p>
-                <a class="btn btn-primary card-href">Read more...</a>
-                <i class="material-icons">bookmark_border</i>
-            </div>
-        </div>
-    </template>
-
-
-
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 
@@ -150,7 +139,6 @@
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/profile.js"></script>
-    <script src="./scripts/previousJob.js"></script>
     <script src="./scripts/imageManip.js"></script>
 
 
