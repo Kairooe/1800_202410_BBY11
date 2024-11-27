@@ -110,6 +110,7 @@ function questIDToCard(element, id) {
 
         card.querySelector('i').onclick = () => saveBookmark(docID);
 
+        
 
         document.getElementById(id).appendChild(card);
 
