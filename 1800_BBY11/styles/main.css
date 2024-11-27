@@ -45,7 +45,7 @@
 /* Card Tags */
 .card .card-tags {
     font-size: 14px;
-    color: #888;
+    color: white;
 }
 
 /* Card Quick Info */
@@ -62,7 +62,7 @@
 
 /* Button Styling */
 .card .btn {
-    /* background-color: #007bff; */
+     background-color: #b22222; 
     /* color: white; */
     border: none;
     border-radius: 5px;
@@ -70,7 +70,7 @@
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #b22222;
 }
 
 /* Bookmark Icon */
@@ -94,8 +94,8 @@
 }
 
 .btn-circle {
-    width: 250px; /* Adjusted size for better proportion */
-    height: 250px; /* Adjusted size for better proportion */
+    width: 150px; /* Adjusted size for better proportion */
+    height: 150px; /* Adjusted size for better proportion */
     border-radius: 50%; /* Makes the button circular */
     background-color: #d6c4a3; /* Match button background color */
     color: black; /* Text color */
@@ -123,14 +123,14 @@
 
 /* Styling for "+" */
 .plus-symbol {
-    font-size: 125px; /* Larger size for the "+" symbol */
+    font-size: 70px; /* Larger size for the "+" symbol */
     font-weight: bold; /* Bold for emphasis */
     line-height: 1;
 }
 
 /* Styling for "Create Quest" */
 .button-text {
-    font-size: 40px; /* Smaller font size for the text */
+    font-size: 20px; /* Smaller font size for the text */
     font-weight: normal; /* Regular weight for text */
     margin-top: 1px; /* Add spacing below the "+" symbol */
     line-height: 1; /* Proper line spacing for text */
