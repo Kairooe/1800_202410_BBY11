@@ -61,10 +61,8 @@ body {
     border: none;
     border-radius: 8px;
     background: #fdf5e6;
-    /* Scroll-like color */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     border: 2px solid #8c6a44;
-    /* Gold border */
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin: 10px;
 }
@@ -89,17 +87,17 @@ body {
 }
 
 .card-title {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cinzel ', serif;
     font-size: 1.5rem;
     color: #4b3b2f;
     margin-bottom: 10px;
 }
 
-.card-text {
+/* .card-text {
     font-size: 1rem;
     color: #5a4634;
     margin-bottom: 15px;
-}
+} */
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: '', sans-serif;
 }
