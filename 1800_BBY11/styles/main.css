@@ -54,14 +54,14 @@
 
 /* Button Styling */
 .card .btn {
-    background-color: #007bff;
-    color: white;
+    /* background-color: #007bff; */
+    /* color: white; */
     border: none;
     border-radius: 5px;
     padding: 5px 10px;
 }
 
-.card .btn:hover {
+.btn:hover {
     background-color: #0056b3;
 }
 
