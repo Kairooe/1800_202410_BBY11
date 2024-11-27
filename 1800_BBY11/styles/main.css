@@ -1,3 +1,7 @@
+* {
+    text-decoration: none; /* Removes underlining from all elements */
+}
+
 /* General Card Styling */
 .card {
     background: #fdf5e6;
