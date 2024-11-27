@@ -1,6 +1,4 @@
-* {
-    text-decoration: none; /* Removes underlining from all elements */
-}
+
 
 /* General Card Styling */
 .card {
@@ -88,8 +86,8 @@
 }
 
 .btn-circle {
-    width: 90px; /* Adjusted size for better proportion */
-    height: 90px; /* Adjusted size for better proportion */
+    width: 250px; /* Adjusted size for better proportion */
+    height: 250px; /* Adjusted size for better proportion */
     border-radius: 50%; /* Makes the button circular */
     background-color: #d6c4a3; /* Match button background color */
     color: black; /* Text color */
@@ -117,20 +115,21 @@
 
 /* Styling for "+" */
 .plus-symbol {
-    font-size: 28px; /* Larger size for the "+" symbol */
+    font-size: 125px; /* Larger size for the "+" symbol */
     font-weight: bold; /* Bold for emphasis */
     line-height: 1;
 }
 
 /* Styling for "Create Quest" */
 .button-text {
-    font-size: 12px; /* Smaller font size for the text */
+    font-size: 40px; /* Smaller font size for the text */
     font-weight: normal; /* Regular weight for text */
-    margin-top: 4px; /* Add spacing below the "+" symbol */
-    line-height: 1.2; /* Proper line spacing for text */
+    margin-top: 1px; /* Add spacing below the "+" symbol */
+    line-height: 1; /* Proper line spacing for text */
 }
 
 
 * {
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
 }
