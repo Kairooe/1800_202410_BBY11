@@ -57,10 +57,11 @@
 
     <!-- User Profile Section -->
     <div class="container profile-container text-center">
-        <div class="profile-pic">
-            <img src="./images/iconamoon--profile-fill.png" alt="User Profile Pic">
+        <div id="profile-pic" class="profile-pic">
+            <img id="profile-picture" src="./images/iconamoon--profile-fill.png" alt="User Profile Pic">
+            <input id="pfp-upload" type="file" accept="image/*"/>
         </div>
-        <h2 class="user-name">User Name</h2>
+        <h2 id="user-name">User Name</h2>
         <button class="edit-profile btn btn-outline-secondary">
             <a href="./Setting.html">Edit</a>
         </button>
@@ -150,6 +151,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/profile.js"></script>
     <script src="./scripts/previousJob.js"></script>
+    <script src="./scripts/imageManip.js"></script>
 
 
 
