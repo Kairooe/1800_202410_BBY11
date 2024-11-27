@@ -34,6 +34,14 @@
     font-weight: bold;
 }
 
+.card a {
+    text-decoration: none; /* Remove underline for links inside cards */
+}
+
+.card a:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
 /* Card Tags */
 .card .card-tags {
     font-size: 14px;
@@ -131,5 +139,9 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+
+a {
     text-decoration: none;
 }
