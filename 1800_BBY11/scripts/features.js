@@ -72,6 +72,7 @@ function createQuest() {
         base64img = "";
     }
     
+
     db.collection("quests").doc().set({
         user_id: currentUserID,
         date_created: Date.now(),
@@ -85,7 +86,10 @@ function createQuest() {
         thumbnail: questThumbnail
     })
 
-    .then(() => {
+    .then((docRef) => {
+        currentUserID.get().then(userDoc => {
+            userDoc.data().quests_created.push(docRef.id)
+        })
         form.reset(); // Optional: clear the form
     })
     .catch((error) => {
