@@ -60,43 +60,24 @@
     <div class="container">
         <h1><span id="questName">Quest Name</span></h1>
         <div class="position-relative">
-            <img class="quest-img responsive" src="" alt="quest photo">
             <a class="btn btn-primary position-absolute bottom-0 end-0 m-3" id ="requestButton" href="./request.html"> Apply for Quest </a>
             <a class="btn btn-primary position-absolute bottom-0 end-0 m-3" id ="editButton" href="./edit.html"> Edit </a>
         </div>
-
         <h2>Description:</h2>
-        <p class="quest-details"></p>
     </div>
-
-    <div class="container">
-
-        <div id="details-go-here"></div>
-        <!-- Here is the container for cards with horizontal scrolling -->
-        <div class="card-container">
-            <div id="reviewCardGroup" class="row row-cols-auto">
-                <!-- Add your card templates here -->
-            </div>
-        </div>
+    
+    
+    <div id="quest-details-container">
+        <img id="quest-thumbnail" alt="Quest Thumbnail" style="width: 200px; height: auto;" />
+        <h1 id="quest-title">Loading...</h1>
+        <p><strong>Details:</strong> <span id="quest-details"></span></p>
+        <p><strong>Pay:</strong> <span id="quest-pay"></span></p>
+        <p><strong>Pay Type:</strong> <span id="quest-pay-type"></span></p>
+        <p><strong>Estimated Time:</strong> <span id="quest-estimated-time"></span> hours</p>
+        <p><strong>Availability:</strong> <span id="quest-availability"></span></p>
+        <p><strong>Tags:</strong> <span id="quest-tags"></span></p>
+        <p><strong>Created By (User ID):</strong> <span id="quest-user-id"></span></p>
     </div>
-
-    <template id="reviewCardTemplate">
-        <div class="card bg-secondary">
-            <img class="card-img-top">
-            <div class="card-body bg-light">
-                <h5 class="title">placeholder</h5>
-                <p class="star-rating"></p>
-                <p class="time">placeholder</p>
-                <p class="level">placeholder</p>
-                <p class="season">placeholder</p>
-                <p class="scrambled">placeholder</p>
-                <p class="flooded">placeholder</p>
-                <br>
-                <p class="description">This card has supporting text below as a natural lead-in to additional content.
-                </p>
-            </div>
-        </div>
-    </template>
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
@@ -108,6 +89,7 @@
     <script src="./scripts/skeleton.js"></script>
     <script src="./scripts/eachQuest.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/imageManip.js"></script>
 
 </body>
 
