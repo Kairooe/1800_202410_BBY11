@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   padding: 0;
@@ -33,7 +32,7 @@ body {
 
 .logo-icon {
   width: 100%; /* The logo will take up the full width of its container */
-  max-width: 250px; /* Set a max width to prevent it from getting too large */
+  max-width: 200px; /* Set a max width to prevent it from getting too large */
   height: auto; /* Maintain the aspect ratio */
   margin-right: 10px; /* Add spacing between logo and text */
   display: block; /* Ensures proper resizing */
@@ -50,8 +49,8 @@ body {
   color: #000; /* Black text */
   font-size: 16px;
   font-weight: normal;
-  padding: 5% 15%; /* Adjust padding as needed */
-  border-radius: 15%; /* Makes the links circular (if the height and width are equal) */
+  padding: 10px 15px; /* Adjust padding as needed */
+  border-radius: 5px; /* Makes the links slightly rounded */
   display: inline-block; /* Ensures the border wraps correctly */
   text-align: center; /* Center-align the text inside */
 }
@@ -60,13 +59,6 @@ body {
   background-color: #f0f0f0; /* Optional: Adds a background on hover */
   color: #333; /* Optional: Darker text on hover */
   transform: scale(1.1); /* Slight enlargement on hover for effect */
-}
-
-.logo-button:hover {
-  text-decoration: underline;
-  transform: translateY(-3px); 
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
-  border-radius: 5%;
 }
 
 .search-container {
@@ -106,12 +98,48 @@ body {
   background-color: #946f40; /* Darker gold */
 }
 
-.container-fluid {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack the navbar elements vertically */
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-links {
+    width: 100%; /* Make nav-links take the full width */
+    justify-content: space-evenly; /* Distribute links evenly */
+    flex-wrap: wrap;
+    margin-right: 0;
+  }
+
+  .nav-link {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    padding: 8px 10px; /* Adjust padding */
+  }
+
+  .search-container {
+    width: 100%; /* Make the search container full width */
+    margin-top: 10px;
+  }
+
+  .search-bar {
+    width: 100%; /* Make the search bar full width */
+  }
 }
 
-* {
-  font-family: 'Montserrat', sans-serif;
+@media (max-width: 480px) {
+  .logo-icon {
+    max-width: 150px; /* Reduce logo size further */
+  }
+
+  .nav-link {
+    font-size: 12px; /* Smaller font for very small screens */
+    padding: 6px 8px;
+  }
+
+  .search-button {
+    padding: 5px;
+    font-size: 12px; /* Reduce search button size */
+  }
 }

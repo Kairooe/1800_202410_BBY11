@@ -1,5 +1,3 @@
-
-
 /* General Card Styling */
 .card {
     background: #fdf5e6;
@@ -94,21 +92,20 @@
 }
 
 .btn-circle {
-    width: 150px; /* Adjusted size for better proportion */
-    height: 150px; /* Adjusted size for better proportion */
-    border-radius: 50%; /* Makes the button circular */
+    width: 15vw; /* Scale button size based on viewport width */
+    height: 15vw; /* Ensure the button remains a perfect circle */
+    border-radius: 50%; /* Circular shape */
     background-color: #d6c4a3; /* Match button background color */
     color: black; /* Text color */
     display: flex; /* Use flexbox to center content */
     flex-direction: column; /* Stack content vertically */
     align-items: center; /* Horizontal centering */
     justify-content: center; /* Vertical centering */
-    text-decoration: none; /* Remove underline */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+    text-align: center; /* Center the text */
     cursor: pointer;
     border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-circle:hover {
@@ -116,24 +113,50 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.btn-circle:active {
-    transform: scale(0.95); /* Pressed-in effect */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 /* Styling for "+" */
 .plus-symbol {
-    font-size: 70px; /* Larger size for the "+" symbol */
+    font-size: 4vw; /* Scale "+" symbol dynamically with viewport width */
     font-weight: bold; /* Bold for emphasis */
     line-height: 1;
 }
 
 /* Styling for "Create Quest" */
 .button-text {
-    font-size: 20px; /* Smaller font size for the text */
+    font-size: 2vw; /* Scale text dynamically with viewport width */
     font-weight: normal; /* Regular weight for text */
-    margin-top: 1px; /* Add spacing below the "+" symbol */
+    margin-top: 5px; /* Add spacing below the "+" symbol */
     line-height: 1; /* Proper line spacing for text */
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .btn-circle {
+        width: 20vw; /* Increase button size for smaller screens */
+        height: 20vw;
+    }
+
+    .plus-symbol {
+        font-size: 6vw; /* Adjust "+" symbol size */
+    }
+
+    .button-text {
+        font-size: 3vw; /* Adjust text size */
+    }
+}
+
+@media (max-width: 480px) {
+    .btn-circle {
+        width: 25vw; /* Further increase button size for very small screens */
+        height: 25vw;
+    }
+
+    .plus-symbol {
+        font-size: 8vw; /* Further adjust "+" symbol size */
+    }
+
+    .button-text {
+        font-size: 4vw; /* Further adjust text size */
+    }
 }
 
 
