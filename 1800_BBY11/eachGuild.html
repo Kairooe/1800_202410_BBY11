@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Guild</title>
+    <title>Each Guild</title>
     <meta name="comp1800 template" content="My 1800 App">
 
     <!------------------------>
@@ -36,7 +36,7 @@
     <!-------------------------------------------->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styleNew.css">
-    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/eachQuest.css">
 
         <!-- Preconnect to Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,63 +57,21 @@
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
-
     <div class="container">
-        <h1><span id="name">User</span>, here are the guilds you're in!</h1>
-        <nav id="guildName"></nav>
-        <!-- Here is the container for cards  -->
-        <div class="container">
-            <div id="guilds-go-here" class="row row-cols-auto"></div>
-        </div>
+        <img style="display: inline-block; padding: 5px ;width: 10vw; height: 10vw; clip-path: circle(); border-radius: 50%; border-style: double; border-width: 6px; border-color: maroon;" src="./images/Card_Background.png">
+        <h1 style="display: inline-block;" > <span id="guildName">Guild Name</span></h1>
+        <h2>Description:</h2>
     </div>
-
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
-
-    <!-- Templates for general use, not displayed -->
-
-    <template id="guildCardTemplate">
-        <div class="card py-2 mx-2 position-relative" style="width: 100vw">
-            <!-- Pin -->
-            <!-- <img class="pin position-absolute" src="./images/pin.png" alt="pin" /> -->
-            
-            <!-- Card Content -->
-            <img class="card-image card-img-top" style="height: 20vh; width: auto;" src="./images/Go-Quest_logo.png" alt="..." />
-            <div class="card-body">
-                <br>
-                <h5 class="card-title" style="font-size: 32px;">Guild Name</h5>
-                <hr>
-                <p class="card-text">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                </p>
-            </div>
-        </div>
-    </template>
-    
 
     <!---------------------------------------------->
     <!-- Your own JavaScript functions go here    -->
     <!---------------------------------------------->
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
-    <script src="./scripts/guild.js"></script>
-
-    <script>
-        window.addEventListener("scroll", () => {
-            const button = document.querySelector(".create-quest-button");
-            const footer = document.querySelector("#footerPlaceholder");
-
-            const footerTop = footer.getBoundingClientRect().top;
-            const viewportHeight = window.innerHeight;
-
-            if (footerTop < viewportHeight) {
-                button.style.bottom = `${viewportHeight - footerTop + 20}px`;
-            } else {
-                button.style.bottom = "20px";
-            }
-        });
-    </script>
+    <script src="./scripts/eachGuild.js"></script>
 
 
 
