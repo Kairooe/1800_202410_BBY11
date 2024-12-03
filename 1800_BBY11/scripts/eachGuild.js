@@ -31,7 +31,7 @@ function getGuild() {
             document.querySelector(".container").innerHTML = "<h1>Guild does not exist.</h1>";
             return
         }
-        if (!doc.data().public && (doc.data().owner != userID && (!doc.data().members || doc.data().members.includes(userID)))) {
+        if (!doc.data().public && (doc.data().owner != userID && (!doc.data().members || !doc.data().members.includes(userID)))) {
             document.querySelector(".container").innerHTML = `<h1>Sorry, you do not have access to this private board.</h1>`;
             return
         }
@@ -73,7 +73,13 @@ function displayMember(memberDoc, isOwner) {
     let memberTemplate = document.getElementById("memberTemplate");
     newcard = memberTemplate.content.cloneNode(true)
 
-    newcard.querySelector(".thingimg").src = memberDoc.data().pfp
+    pfp = memberDoc.data().pfp
+
+    if (pfp == null || pfp == "") {
+        pfp = "./images/iconamoon--profile-fill.png";
+    }
+
+    newcard.querySelector(".thingimg").src = pfp
     if (isOwner) {
         newcard.querySelector(".thingimg").style.borderColor = "#967e3c";
         newcard.querySelector(".thingimg").style.borderStyle = "double";
