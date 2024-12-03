@@ -92,9 +92,6 @@ function createQuest() {
         })
         form.reset(); // Optional: clear the form
     })
-    .catch((error) => {
-        alert("Error creating quest: " + error.message);
-    });
 
     Swal.fire({
         title: "Quest created successfully!",

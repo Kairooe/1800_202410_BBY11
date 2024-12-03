@@ -92,8 +92,8 @@
 }
 
 .btn-circle {
-    width: 15vw; /* Scale button size based on viewport width */
-    height: 15vw; /* Ensure the button remains a perfect circle */
+    width: 10vw; /* Scale button size based on viewport width */
+    height: 10vw; /* Ensure the button remains a perfect circle */
     border-radius: 50%; /* Circular shape */
     background-color: #d6c4a3; /* Match button background color */
     color: black; /* Text color */
@@ -122,10 +122,20 @@
 
 /* Styling for "Create Quest" */
 .button-text {
-    font-size: 2vw; /* Scale text dynamically with viewport width */
+    font-size: 1.4vw; /* Scale text dynamically with viewport width */
     font-weight: normal; /* Regular weight for text */
     margin-top: 5px; /* Add spacing below the "+" symbol */
     line-height: 1; /* Proper line spacing for text */
+}
+.text-truncate {
+    max-height: 3.6em; /* Approximately 2 lines */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+    white-space: normal;
 }
 
 /* Adjustments for Smaller Screens */

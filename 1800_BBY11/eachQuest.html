@@ -58,7 +58,11 @@
     <!-- the body of your page goes here -->
     <!-- stuff -->
     <div class="container">
-        <h1><span id="questName">Quest Name</span></h1>
+        <div>
+            <h2 id="quest-title">Loading...</h2>
+        </div>
+        <img id="quest-thumbnail" alt="Quest Thumbnail" />
+        
         <div class="position-relative">
             <a class="btn btn-primary position-absolute bottom-0 end-0 m-3" id ="requestButton" href="./request.html"> Apply for Quest </a>
             <a class="btn btn-primary position-absolute bottom-0 end-0 m-3" id ="editButton" href="./edit.html"> Edit </a>
@@ -68,8 +72,6 @@
     
     
     <div id="quest-details-container">
-        <img id="quest-thumbnail" alt="Quest Thumbnail" style="width: 200px; height: auto;" />
-        <h1 id="quest-title">Loading...</h1>
         <p><strong>Details:</strong> <span id="quest-details"></span></p>
         <p><strong>Pay:</strong> <span id="quest-pay"></span></p>
         <p><strong>Pay Type:</strong> <span id="quest-pay-type"></span></p>
