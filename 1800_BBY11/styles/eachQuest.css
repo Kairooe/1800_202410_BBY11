@@ -19,9 +19,162 @@
 
 
 /* Styling for the details */
-#quest-details-container {
-  text-align: left;
-  /* Align text to the left for details */
-  margin: 20px auto;
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
 }
 
+#quest-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#quest-thumbnail {
+  width: 100%;
+  max-width: 1100px; 
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.position-relative {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  z-index: 10;
+  position: absolute;
+  bottom: 13px;
+  right: 85px;
+}
+
+#requestButton {
+  position: absolute;
+  bottom: 20px; /* Adjust distance from bottom */
+  right: 20px; /* Adjust distance from right */
+  background-color: #b22222;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+  z-index: 10;
+  border-radius: 5px; /* Optional: add rounded corners */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#requestButton:hover {
+  background-color: #891919;
+  transform: scale(1.05);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+#quest-details-container {
+  width: 100%;
+  max-width: 500px;
+  margin-left: 16%;  /* Push the container towards the center from the left */
+  margin-right: auto;
+  padding: 20px;
+  background-color: #fdf6e4;
+  border-radius: 8px;
+}
+
+/* Hover and interaction styles remain the same as in previous implementation */
+#quest-details-container p {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+#quest-details-container p:hover {
+  background-color: rgba(178, 34, 34, 0.05);
+  transform: translateX(10px);
+}
+
+#quest-details-container p strong {
+  color: #b22222;
+  margin-right: 10px;
+  display: inline-block;
+  min-width: 150px;
+}
+
+#quest-details-container p span {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+#quest-details-container p span:hover {
+  color: #b22222;
+}
+h2{
+  margin-left: 7%;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+  }
+
+  #quest-thumbnail {
+    position: relative;
+  }
+
+  .position-relative {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  #requestButton, #editButton {
+    margin-bottom: 10px;
+    padding: 0 5px; /* Adjust padding to make the button small */
+    width: 80px; /* Set the desired width */
+    height: 20px; /* Set the desired height */
+    min-width: 10px;
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    text-align: center;
+    font-size: 8px; /* Adjust font size */
+  }
+  
+
+  #quest-details-container p {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #quest-details-container p strong {
+    margin-bottom: 5px;
+    min-width: auto;
+  }
+  #quest-details-container {
+    width: 100%;
+    max-width: 500px;
+    margin-left: 0.2%;  /* Push the container towards the center from the left */
+    margin-right: auto;
+    padding: 20px;
+    background-color: #fdf6e4;
+    border-radius: 8px;
+  }
+  h2{
+    margin-left: 2%;
+    margin-right: auto;
+  }
+}
