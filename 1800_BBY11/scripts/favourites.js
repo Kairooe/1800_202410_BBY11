@@ -61,7 +61,6 @@ function getBookmarks(user) {
                     newcard.querySelector('.card-title').innerHTML = title;
                     newcard.querySelector('.card-length').innerHTML = hikeLength + "km";
                     newcard.querySelector('.card-image').src = `./images/${questCode}.jpg`; //Example: NV01.jpg
-                    newcard.querySelector('a').href = "eachQuest.html?docID=" + docID;
 
                     //NEW LINE: update to display length, duration, last updated
                     newcard.querySelector('.card-length').innerHTML =

@@ -43,7 +43,10 @@ function getGuild() {
         } else {
             getMembers(doc)
         }
-
+        if (doc.data().thumbnail != null && doc.data().thumbnail != "") {
+            document.getElementById("guildImg").src = doc.data().thumbnail;
+        }
+        
         document.getElementById("guildName").innerHTML = doc.data().name;
         document.getElementById("guildDesciption").innerHTML = doc.data().description;
     }).catch(
@@ -140,7 +143,6 @@ function displayCardsDynamically() {
 
                 newcard.querySelector('.card-tags').innerHTML = tags;
 
-                newcard.querySelector('a').href = "eachQuest.html?docID=" + docID;
                 newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
 
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);

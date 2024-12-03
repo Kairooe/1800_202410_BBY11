@@ -22,7 +22,7 @@ function checkForDisplayableGuilds(userID) {
             if (doc.data().public) {
                 
                 displayGuild(doc);
-            } else if ((doc.data().members && doc.data().members.includes(userID)) || doc.data().owner == userID) {
+            } else if (!doc.data().public && (doc.data().owner == userID || (doc.data().members && doc.data().members.includes(userID)))) {
                 displayGuild(doc);
             }
         })
@@ -35,7 +35,9 @@ function displayGuild(doc) {
 
     newguild.querySelector('.card-title').innerHTML = doc.data().name;
     newguild.querySelector('.card-text').innerHTML = doc.data().description;
-
+    if (doc.data().thumbnail != null && doc.data().thumbnail != "") {
+        newguild.querySelector('.card-image').src = doc.data().thumbnail;
+    }
 
     guildsDisplay.appendChild(newguild);
 

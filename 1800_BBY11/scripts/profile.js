@@ -138,7 +138,6 @@ function questIDToCard(element, id) {
 
         card.querySelector('.card-tags').innerHTML = tags;
 
-        card.querySelector('a').href = "eachQuest.html?docID=" + docID;
         card.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
 
         card.querySelector('i').onclick = () => saveBookmark(docID);
@@ -146,7 +145,11 @@ function questIDToCard(element, id) {
         
 
         document.getElementById(id).appendChild(card);
-
+        document
+        .getElementById(id)
+        .lastElementChild.addEventListener("click", () => {
+          document.location.href = "eachQuest.html?docID=" + docID;
+        });
     })
 
 

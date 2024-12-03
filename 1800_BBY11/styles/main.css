@@ -7,6 +7,7 @@
     position: relative; /* Enables positioning of child elements */
     overflow: visible; /* Ensures the pin is visible outside the card */
     padding-top: 20px; /* Adds space for the pin at the top */
+    margin-top: 20px;
 }
 
 .card .card-image {

@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="./styles/styleNew.css">
-    <link rel="stylesheet" href="./styles/history.css">
+    <link rel="stylesheet" href="./styles/main.css">
 
         <!-- Preconnect to Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,39 +37,41 @@
 <body>
     <nav id="navbarPlaceholder"></nav>
 
-    <div class="container my-5">
-        <h2 class="mb-4">Completed Quests</h2>
-        <!-- List group for displaying quests -->
-        <div class="list-group">
-            <!-- Example of a quest item, repeat these blocks for each quest dynamically -->
-            <div class="History">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Quest Title 1</h5>
-                    <small>Completed on: 2024-01-22</small>
-                </div>
-                <p class="mb-1">Brief quest description.</p>
-                <small>Further details if needed.</small>
-            </div>           
-
-            <div class="History">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Quest Title 2</h5>
-                    <small>Completed on: 2024-11-02</small>
-                </div>
-                <p class="mb-1">Brief quest description.</p>
-                <small>Further details if needed.</small>
-            </div>
-            
-
-            <!-- Repeat similar blocks or dynamically load quests here -->
+    <div class="container job-container text-center">
+        <h3>Quest History:</h3>
+        <div class="row quests-posted" id="historyQuestsContainer">
+            <!-- Cards will be dynamically populated here -->
         </div>
     </div>
 
     <nav id="footerPlaceholder"></nav>
 
+    <template id="questCardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem">
+            <img class="pin position-absolute" src="./images/pin.png" alt="pin" />
+            <img class="card-image card-img-top" src=" ..." alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-tags"></p>
+                <div class="card-quickinfo">
+                    <p style="float:left" class="card-time"></p>
+                    <p style="float:right" class="card-pay"></p>
+                </div>
+                <br />
+                <hr>
+                <p class="card-text">
+                    Some quick example text to build on the card title and make up the
+                    bulk of the card's content.
+                </p>
+                <i class="material-icons">bookmark_border</i>
+            </div>
+        </div>
+    </template>
+
     <!-- Scripts -->
     <script src="./scripts/firebaseAPI_TEAM99.js"></script>
     <script src="./scripts/skeleton.js"></script>
+    <script src="./scripts/history.js"></script>
     <!-- <script src="./scripts/script.js"></script> -->
 </body>
 </html>
