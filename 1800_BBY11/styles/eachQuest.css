@@ -80,7 +80,7 @@
 
 #quest-details-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 67%;
   margin-left: 16%;  /* Push the container towards the center from the left */
   margin-right: auto;
   padding: 20px;

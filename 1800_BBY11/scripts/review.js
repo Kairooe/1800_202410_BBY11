@@ -5,17 +5,17 @@ function saveHikeDocumentIDAndRedirect(){
     window.location.href = 'review.html';
 }
 
-function getHikeName(id) {
-    db.collection("hikes")
-      .doc(id)
-      .get()
-      .then((thisHike) => {
-        var hikeName = thisHike.data().name;
-        document.getElementById("hikeName").innerHTML = hikeName;
-          });
-}
+// function getHikeName(id) {
+//     db.collection("hikes")
+//       .doc(id)
+//       .get()
+//       .then((thisHike) => {
+//         var hikeName = thisHike.data().name;
+//         document.getElementById("hikeName").innerHTML = hikeName;
+//           });
+//}
 
-getHikeName(hikeDocID);
+// getHikeName(hikeDocID);
 
 var hikeDocID = localStorage.getItem("hikeDocID");    //visible to all functions on this page
 
@@ -36,7 +36,8 @@ stars.forEach((star, index) => {
     });
 });
 
-function writeReview() {
+function writeReview(event) {
+  event.preventDefault(); 
     console.log("inside write review");
     let hikeTitle = document.getElementById("title").value;
     let hikeLevel = document.getElementById("level").value;
@@ -57,7 +58,21 @@ function writeReview() {
 						// If the condition is met, increment the 'hikeRating' by 1
             hikeRating++;
         }
+        Swal.fire({
+          title: "Quest created successfully!",
+          icon: "success",
+          confirmButtonText: "Go Home",
+          customClass: {
+              confirmButton: 'swal2-confirm',
+          }
+      }).then((result) => {
+          if (result.isConfirmed) {  // Check if the confirm button was clicked
+              window.location.href = "main.html";  // Redirect to main.html
+          }
+      });
     });
+
+    
 
     console.log(hikeTitle, hikeLevel, hikeSeason, hikeDescription, hikeFlooded, hikeScrambled, hikeRating);
 

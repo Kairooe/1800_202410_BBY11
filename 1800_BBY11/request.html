@@ -44,6 +44,14 @@
     
         <!-- Link to Google Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+        <script src="
+        https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js
+     "></script>
+     <link href="
+     https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.min.css
+     " rel="stylesheet">
+     
 </head>
 
 <body>
@@ -63,28 +71,29 @@
         <form>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Name</label>
-                <input type="text" class="form-control" id="title" placeholder="Title">
+                <input type="text" class="form-control" id="title" placeholder="Enter your name" required>
             </div><br>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">How Experienced Are You at this quest</label>
-                <select class="form-control" id="level">
-                    <option>Very Competent</option>
-                    <option>Mild Competent</option>
-                    <option>First time</option>
+                <label for="exampleFormControlSelect1">How experienced are you at this Quest</label>
+                <select class="form-control" id="level" required>
+                    <option value="">Select experience level</option>
+                    <option>Entry-level</option>
+                    <option>Intermediate</option>
+                    <option> Mid-level</option>
                 </select>
                 <br>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Notes:</label>
-                    <textarea class="form-control" id="description" rows="3"></textarea>
+                    <textarea class="form-control" id="description" rows="3" required placeholder="I believe I am a perfect fit for the Quest because..."></textarea>
                 </div>
                 <br>
             </div>
             <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-lg btn-primary pull-right"
-                    onclick="writeReview()">Submit</button>
+                <button type="submit" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
             </div>
         </form>
     </div>
+    
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
