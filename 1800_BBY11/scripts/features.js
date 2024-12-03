@@ -5,6 +5,20 @@ function getUser() {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUserID = user.uid;
+
+            guildHolder = document.getElementById("guilds");
+            db.collection("guilds").get().then((allGuilds) => {
+                allGuilds.forEach((guildDoc) => {
+                    option = document.createElement("option");
+
+                    option.innerHTML = guildDoc.data().name;
+                    option.value = guildDoc.id;
+
+                    guildHolder.appendChild(option);
+                    
+                })
+                
+            })
         } else {
             console.log("No user is signed in");
         }
@@ -12,8 +26,8 @@ function getUser() {
 }
 getUser();
 
-function capitalizeFirstLetter(val) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1).toLowerCase();
+function addHashtag(val) {
+    return "#" + val.toLowerCase().replace(' ', "");
 }
 
 function saveTag() {
@@ -47,7 +61,7 @@ function createQuest() {
         // Split by comma, trim whitespace, capitalize first letters, remove empty tags
         questTags = questTagsRaw.split(',')
             .map(tag => tag.trim())
-            .map(capitalizeFirstLetter)
+            .map(addHashtag)
             .filter(item => item);
         
         questTitle = document.getElementById('titleInput').value;
@@ -56,6 +70,7 @@ function createQuest() {
         questETA = document.getElementById('timeInput').value.replace(/[^0-9]/g, '');
         questDetails = document.getElementById('detailsInput').value;
         questThumbnail = base64img;
+        questGuild = document.getElementById('guilds').value;
 
         if (questPayType === 'Money') {
             questPay =  "$" + questPay.replace(/[^\.0-9]/g, '') ;
@@ -76,6 +91,7 @@ function createQuest() {
     db.collection("quests").doc().set({
         user_id: currentUserID,
         date_created: Date.now(),
+        guild: questGuild,
         availability: "Open",
         tags: questTags,
         title: questTitle,

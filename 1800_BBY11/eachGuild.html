@@ -37,6 +37,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./styles/styleNew.css">
     <link rel="stylesheet" href="./styles/eachQuest.css">
+    <link rel="stylesheet" href="./styles/main.css">
 
         <!-- Preconnect to Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,11 +58,55 @@
 
     <!-- the body of your page goes here -->
     <!-- stuff -->
+    <br> <br>
     <div class="container">
-        <img style="display: inline-block; padding: 5px ;width: 10vw; height: 10vw; clip-path: circle(); border-radius: 50%; border-style: double; border-width: 6px; border-color: maroon;" src="./images/Card_Background.png">
-        <h1 style="display: inline-block;" > <span id="guildName">Guild Name</span></h1>
-        <h2>Description:</h2>
+        <img id="guildImg" style="padding: 5px ;width: 10vw; height: 10vw; clip-path: circle(); border-radius: 50%; border-style: double; border-width: 6px; border-color: maroon;" src="./images/Card_Background.png">
+        <br>
+        <h1> <span id="guildName">Guild Name</span></h1>
+        <hr style="width: 70%;">
+        <br>
+        <h2 style="margin-left: auto; margin-right: auto;" id="guildDesciption">The soon-to-be-loaded guild description!</h2>
+        <br> <br> <br>
+        <h3 class="displayIfPrivate" style=" margin-left: auto; margin-right: auto;">Guild Members</h3>
+        <hr class="displayIfPrivate" style="width: 80%;">
+        <div class="displayIfPrivate" id="guildMembers" style="margin-bottom: 20px; margin-top: 20px;"></div>
+            
+        <h3 style="margin-left: auto; margin-right: auto;">Guild Quests</h3>
+        <hr style="width: 80%;">
+        <div id="guildQuests" style="width: 100%;"></div>
+        
     </div>
+
+    <template id="memberTemplate">
+        <div class="thang">
+            <img class="thingimg" style="width:5vw; clip-path: circle(); margin: 4px; border-style:solid; border-width: 2px; border-color: maroon; border-radius: 50%;" src="./images/03.jpg">
+        </div>
+    </template>
+
+    <template id="questCardTemplate">
+        <div class="card py-2 mx-2 position-relative" style="width: 18rem;">
+            <!-- Pin -->
+            <img class="pin position-absolute" src="./images/pin.png" alt="pin" />
+            
+            <!-- Card Content -->
+            <img class="card-image card-img-top" src="..." alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-tags"></p>
+                <div class="card-quickinfo">
+                    <p style="float:left" class="card-time"></p>
+                    <p style="float:right" class="card-pay"></p>
+                </div>
+                <br />
+                <hr />
+                <p class="card-text text-truncate">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+                <a class="btn btn-primary card-href">Read more...</a>
+                <i class="material-icons">bookmark_border</i>
+            </div>
+        </div>
+    </template>
 
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>

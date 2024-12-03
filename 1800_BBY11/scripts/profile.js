@@ -1,4 +1,3 @@
-
 var currentUser;               //points to the document of the user who is logged in
 
 function populateUserInfo() {
@@ -26,6 +25,11 @@ function populateUserInfo() {
                         document.getElementById("profile-picture").src = pfp;
                     }
 
+                    document.getElementById("profile-picture").addEventListener("click", () => {
+                        document.getElementById("pfp-upload").click()
+                    })
+                    
+
                 })
         } else {
             // No user is signed in.
@@ -33,13 +37,43 @@ function populateUserInfo() {
         }
     });
 }
+const urlParams = new URLSearchParams(window.location.search);
+const questDocID = urlParams.get("docID");
 
-populateUserInfo();
+function displayWho() {
+    if (!questDocID) {
+        populateUserInfo()
+    } else {
+        currentUser = db.collection("users").doc(questDocID)
+            //get the document for current user.
+        currentUser.get()
+            .then(userDoc => {
+                //get the data fields of the user
+                let userName = userDoc.data().name;
+                let pfp = userDoc.data().pfp;
 
+                //if the data fields are not empty, then write them in to the form.
+                if (userName != null) {
 
-document.getElementById("profile-picture").addEventListener("click", () => {
-    document.getElementById("pfp-upload").click()
-})
+                    document.getElementById("user-name").innerHTML = userName;
+                }
+
+                if (pfp != null && pfp != "") {
+                    document.getElementById("profile-picture").src = pfp;
+                }
+
+                document.getElementById("profile-picture").addEventListener("click", () => {
+                    document.getElementById("pfp-upload").click()
+                })
+                
+
+            })
+    }
+    
+}
+
+displayWho()
+
 
 window.addEventListener('load', function () {
     document.getElementById('pfp-upload').addEventListener('change', function () {
@@ -67,7 +101,6 @@ function populateQuestData() {
         userDoc.data().quests_created.map(element => questIDToCard(element, "postedQuestsContainer"))
         userDoc.data().quests_taken.map(element => questIDToCard(element, "takenQuestsContainer"))
         userDoc.data().quests_watched.map(element => questIDToCard(element, "watchedQuestsContainer"))
-        userDoc.data().quests_completed.map(element => questIDToCard(element, "historyQuestsContainer"))
     })
 }
 

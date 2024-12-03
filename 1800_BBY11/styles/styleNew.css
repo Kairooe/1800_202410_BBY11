@@ -64,7 +64,6 @@ body {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     border: 2px solid #8c6a44;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin: 10px;
 }
 
 .card:hover {

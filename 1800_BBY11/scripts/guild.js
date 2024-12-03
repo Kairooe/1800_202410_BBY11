@@ -20,6 +20,7 @@ function checkForDisplayableGuilds(userID) {
     db.collection("guilds").get().then(allGuilds => {
         allGuilds.forEach((doc) => {
             if (doc.data().public) {
+                
                 displayGuild(doc);
             } else if ((doc.data().members && doc.data().members.includes(userID)) || doc.data().owner == userID) {
                 displayGuild(doc);
@@ -43,6 +44,7 @@ function displayGuild(doc) {
     })
     
 }
+
 
 getNameFromAuth();
 
