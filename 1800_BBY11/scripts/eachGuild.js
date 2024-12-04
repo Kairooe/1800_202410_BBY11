@@ -205,16 +205,7 @@ function addUser() {
 }
 
 function removeUser() {
-    let userID = document.getElementById("userInput").value;
 
-    let members = guildDoc.data().members;
-    if (members && members.length != 0 && members.includes(userID)) {
-        members.splice(members.indexOf(userID), 1);
-    }
-
-    guildRef.set({
-        members: members
-    }, { merge: true });
 }
 
 //------------------------------------------------------------------------------

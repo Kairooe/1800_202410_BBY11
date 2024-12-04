@@ -91,7 +91,7 @@ function createQuest() {
     }
     
 
-    db.collection("quests").add({
+    db.collection("quests").doc().set({
         user_id: currentUserID,
         date_created: Date.now(),
         guild: questGuild,
@@ -106,20 +106,8 @@ function createQuest() {
     })
 
     .then((docRef) => {
-        let userRef = db.collection("users").doc(currentUserID)
-        userRef.get().then(userDoc => {
-            array = userDoc.data().quests_created
-
-            if (array && array.length != 0) {
-                array.push(docRef.id)
-            } else {
-                array = [docRef.id]
-            }
-            
-
-            userRef.set({
-                quests_created: array
-            }, { merge: true })
+        currentUserID.get().then(userDoc => {
+            userDoc.data().quests_created.push(docRef.id)
         })
         form.reset(); // Optional: clear the form
     })
