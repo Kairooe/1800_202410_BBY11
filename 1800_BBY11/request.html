@@ -66,30 +66,20 @@
     <!-- stuff -->
     <div class="container">
         <br>
-        <h1>Request for <span id="questName"> quest Name</span></h1>
+        <h1>Apply for quest <b><span id="questName">Epic Quest</span></b> by <span id="questCreator"></span></h1>
         <br>
         <form>
+
             <div class="form-group">
-                <label for="exampleFormControlInput1">Name</label>
-                <input type="text" class="form-control" id="title" placeholder="Enter your name" required>
-            </div><br>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">How experienced are you at this Quest</label>
-                <select class="form-control" id="level" required>
-                    <option value="">Select experience level</option>
-                    <option>Entry-level</option>
-                    <option>Intermediate</option>
-                    <option> Mid-level</option>
-                </select>
                 <br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Notes:</label>
-                    <textarea class="form-control" id="description" rows="3" required placeholder="I believe I am a perfect fit for the Quest because..."></textarea>
+                    <label for="exampleFormControlTextarea1">Application Notes:</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="I believe I am a perfect fit for the Quest because..."></textarea>
                 </div>
                 <br>
             </div>
             <div class="d-flex justify-content-end">
-                <button type="submit" class="btn btn-lg btn-primary pull-right" onclick="writeReview()">Submit</button>
+                <button type="submit" class="btn btn-lg btn-primary pull-right" onclick="apply()">Submit</button>
             </div>
         </form>
     </div>
