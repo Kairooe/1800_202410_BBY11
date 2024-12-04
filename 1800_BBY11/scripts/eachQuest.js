@@ -158,4 +158,77 @@ if (questDocID) {
 
 
 
+
+
 // Initialize Firestore (make sure Firebase is properly configured in your project)
+
+function displayQuestCreatorDetails(questDocID) {
+    // Get reference to Firestore
+    const db = firebase.firestore();
+
+    // Fetch the quest document first to get creation details
+    db.collection("quests").doc(questDocID).get()
+        .then((questDoc) => {
+            if (questDoc.exists) {
+                const questData = questDoc.data();
+                const creatorID = questData.user_id;
+                const creationTimestamp = questDoc.get("date_created");
+
+                // Fetch creator's user details
+                return db.collection("users").doc(creatorID).get()
+                    .then((userDoc) => {
+                        // Prepare creator details
+                        let userName = "Unknown User";
+                        let userPfp = './images/profile-default.jpeg'; // Default profile picture
+
+                        if (userDoc.exists) {
+                            const userData = userDoc.data();
+                            userName = userData.name || "Unknown User";
+                            userPfp = userData.pfp || './images/profile-default.jpeg';
+                        }
+
+                        // Format creation date
+                        let formattedDate = 'Date Unknown';
+                        if (creationTimestamp) {
+                            const date = new Date(creationTimestamp);
+                            formattedDate = date.toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            });
+                        }
+
+                        // Update the creator details container
+                        const creatorContainer = document.getElementById('quest-creator-container');
+                        if (creatorContainer) {
+                            creatorContainer.innerHTML = `
+                                <div class="creator-details">
+                                    <img src="${userPfp}" 
+                                         alt="Profile Picture" 
+                                         style="width: 40px; height: 40px; border-radius: 50%; margin-right: 10px;">
+                                    <div class="creator-info">
+                                        <strong>${userName}</strong>
+                                        <p class="text-muted" style="font-size: 0.8em; margin: 0;">Created on ${formattedDate}</p>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                        
+                    });
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching quest creator details:", error);
+        });
+}
+
+// Modify your existing page load script to call this function
+window.addEventListener('load', function() {
+    // Get the quest ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const questDocID = urlParams.get("docID");
+
+    if (questDocID) {
+        displayQuestCreatorDetails(questDocID);
+    }
+});
