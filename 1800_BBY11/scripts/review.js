@@ -40,10 +40,14 @@ function putQuestName() {
 function apply() {
     
     description = document.getElementById('description').value
-    alert(description + " " + questDoc.id + " " + userID)
-    db.collection("applications").doc().set({
-        description: description,
-        quest_id: questDoc.id,
-        user_ud: userID
+    currentUser.get().then(userDoc => {
+        db.collection("applications").doc().set({
+            description: description,
+            quest_id: questDoc.id,
+            user_id: userID,
+            user_pfp: userDoc.data().pfp,
+            user_name: userDoc.data().name
+        })
     })
+    
 }

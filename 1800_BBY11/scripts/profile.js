@@ -114,7 +114,7 @@ function questIDToCard(element, id) {
         questTags = questDoc.data().tags;
         date = questDoc.data().date_created;
         thumbnail = questDoc.data().thumbnail;
-        docID = questDoc.id;
+        let docID = questDoc.id;
 
         card.querySelector('.card-title').innerHTML = title;
         card.querySelector('.card-text').innerHTML = details;
