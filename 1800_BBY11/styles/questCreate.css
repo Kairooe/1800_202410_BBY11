@@ -54,7 +54,8 @@
     border-color: #7d1717;
   }
 
-  .btn :hover {
+  .btn:hover {
     background-color: #7d1717;
+    border-color: #7d1717;
     color: white;
   }
