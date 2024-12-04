@@ -1,76 +1,81 @@
-//----------------------------------------------------------
-// This function is the only function that's called.
-// This strategy gives us better control of the page.
-//----------------------------------------------------------
-function doAll() {
-    firebase.auth().onAuthStateChanged(user => {
-        if (user) {
-            insertNameFromFirestore(user);
-            getBookmarks(user)
-        } else {
-            console.log("No user is signed in");
-        }
+var currentUser; //points to the document of the user who is logged in
+
+function populateUserInfo() {
+  firebase.auth().onAuthStateChanged((user) => {
+    // Check if user is signed in:
+    if (user) {
+      //go to the correct user document by referencing to the user uid
+      currentUser = db.collection("users").doc(user.uid);
+      //get the document for current user.
+      populateHistory();
+    } else {
+      // No user is signed in.
+      console.log("No user is signed in");
+    }
+  });
+}
+populateUserInfo();
+
+function populateHistory() {
+  currentUser.get().then((userDoc) => {
+    if (userDoc.data().quests_watched && userDoc.data().quests_watched.length != 0) {
+      userDoc.data().quests_watched.map(makeCard);
+    }   
+  });
+}
+
+function makeCard(questID) {
+  db.collection("quests")
+    .doc(questID)
+    .get()
+    .then((doc) => {
+      let cardTemplate = document.getElementById("questCardTemplate");
+      title = doc.data().title; // get value of the "name" key
+      details = doc.data().details; // get value of the "details" key
+      questTags = doc.data().tags;
+      date = doc.data().date_created;
+      thumbnail = doc.data().thumbnail;
+      docID = doc.id;
+      newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+
+      //update title and text and image
+      newcard.querySelector(".card-title").innerHTML = title;
+      newcard.querySelector(".card-text").innerHTML = details;
+      if (!thumbnail) {
+        newcard.querySelector(".card-image").src = `./images/Quest.png`;
+      } else {
+        newcard.querySelector(".card-image").src = thumbnail;
+      }
+
+      let tags = "";
+      questTags.forEach((val) => {
+        tags += `<span style="white-space:pre;background:#c75146;border-radius:10%;display:inline-block">  ${val}  </span><span style="white-space:pre;">  </span>`;
+      });
+
+      let eta = doc.data().estimated_time;
+
+      newcard.querySelector(".card-pay").innerHTML = doc.data().pay;
+      newcard.querySelector(".card-time").innerHTML =
+        doc.data().estimated_time + ` hour${eta > 1 ? "s" : ""}`;
+
+      newcard.querySelector(".card-tags").innerHTML = tags;
+
+      newcard.querySelector("i").id = "save-" + docID; //guaranteed to be unique
+
+      newcard.querySelector("i").onclick = () => saveBookmark(docID);
+
+      //Optional: give unique ids to all elements for future use
+      // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+      // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+      // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+      //attach to gallery, Example: "hikes-go-here"
+      document.getElementById("historyQuestsContainer").appendChild(newcard);
+
+      document
+        .getElementById("historyQuestsContainer")
+        .lastElementChild.addEventListener("click", () => {
+          document.location.href = "eachQuest.html?docID=" + docID;
+        });
     });
-}
-doAll();
-
-//----------------------------------------------------------
-// Wouldn't it be nice to see the User's Name on this page?
-// Let's do it!  (Thinking ahead:  This function can be carved out, 
-// and put into script.js for other pages to use as well).
-//----------------------------------------------------------//----------------------------------------------------------
-function insertNameFromFirestore(user) {
-            db.collection("users").doc(user.uid).get().then(userDoc => {
-                console.log(userDoc.data().name)
-                userName = userDoc.data().name;
-                console.log(userName)
-                document.getElementById("name-goes-here").innerHTML = userName;
-            })
-
-}
-
-//----------------------------------------------------------
-// This function takes input param User's Firestore document pointer
-// and retrieves the "saved" array (of bookmarks) 
-// and dynamically displays them in the gallery
-//----------------------------------------------------------
-function getBookmarks(user) {
-    db.collection("users").doc(user.uid).get()
-        .then(userDoc => {
-
-					  // Get the Array of bookmarks
-            var bookmarks = userDoc.data().bookmarks;
-            console.log(bookmarks);
-						
-						// Get pointer the new card template
-            let newcardTemplate = document.getElementById("savedCardTemplate");
-
-						// Iterate through the ARRAY of bookmarked hikes (document ID's)
-            bookmarks.forEach(thisQuestID => {
-                console.log(thisQuestID);
-                db.collection("quests").doc(thisQuestID).get().then(doc => {
-                    var title = doc.data().name; // get value of the "name" key
-                    var questCode = doc.data().code; //get unique ID to each hike to be used for fetching right image
-                    var questLength = doc.data().length; //gets the length field
-                    var docID = doc.id;  //this is the autogenerated ID of the document
-                    
-                    //clone the new card
-                    let newcard = newcardTemplate.content.cloneNode(true);
-
-                    //update title and some pertinant information
-                    newcard.querySelector('.card-title').innerHTML = title;
-                    newcard.querySelector('.card-length').innerHTML = hikeLength + "km";
-                    newcard.querySelector('.card-image').src = `./images/${questCode}.jpg`; //Example: NV01.jpg
-
-                    //NEW LINE: update to display length, duration, last updated
-                    newcard.querySelector('.card-length').innerHTML =
-                        "Length: " + doc.data().length + " km <br>" +
-                        "Duration: " + doc.data().hike_time + "min <br>" +
-                        "Last updated: " + doc.data().last_updated.toDate().toLocaleDateString();
-
-										//Finally, attach this new card to the gallery
-                    QuestCardGroup.appendChild(newcard);
-                })
-            });
-        })
 }
