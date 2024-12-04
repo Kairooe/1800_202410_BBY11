@@ -141,6 +141,11 @@
     white-space: normal;
 }
 
+* {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+
 /* Adjustments for Smaller Screens */
 @media (max-width: 768px) {
     .btn-circle {
@@ -175,7 +180,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
+    /* text-decoration: none; */
 }
 
 a {
