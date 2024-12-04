@@ -1,3 +1,15 @@
 * {
     font-family: 'Montserrat', sans-serif;
 }
+
+.btn {
+    background-color: #b22222;
+    color: white;
+    border-color: #7d1717;
+  }
+
+  .btn:hover {
+    background-color: #7d1717;
+    border-color: #7d1717;
+    color: white;
+  }

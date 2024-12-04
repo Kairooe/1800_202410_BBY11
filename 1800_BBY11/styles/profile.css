@@ -97,7 +97,7 @@ body {
 
 .card .card-tags {
     font-size: 14px;
-    color: #888;
+    color: white;
 }
 
 .card .card-quickinfo p {
@@ -107,11 +107,11 @@ body {
 
 .card .card-text {
     font-size: 14px;
-    color: #555;
+    color: black;
 }
 
 .card .btn {
-    background-color: #007bff;
+    background-color: #b22222;
     color: white;
     border: none;
     border-radius: 5px;
@@ -119,7 +119,7 @@ body {
 }
 
 .card .btn:hover {
-    background-color: #0056b3;
+    background-color: #7e1717;
 }
 
 .card .material-icons {
