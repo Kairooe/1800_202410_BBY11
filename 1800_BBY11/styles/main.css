@@ -19,13 +19,15 @@
 
 /* Pin Styling */
 .pin {
-    width: 50px;
     position: absolute;
-    top: -15px; /* Position the pin above the card */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for true centering */
-    z-index: 2; /* Ensure it stays above the card */
-}
+    top: -15px; /* Adjusts how far above the card the pin appears */
+    left: 50%; /* Positions it horizontally in the center */
+    transform: translateX(-50%); /* Centers the pin horizontally */
+    width: 40px; /* Adjust the size as needed */
+    height: 40px;
+    z-index: 2; /* Ensures it's above other elements */
+}   
+
 
 /* Card Title */
 .card .card-title {
