@@ -145,6 +145,5 @@ function accept(appID) {
 }
 
 function deny(appID) {
-  document.getElementById("a"+appID).parent.parent.remove();
   db.collection("applications").doc(appID).delete();
 }
