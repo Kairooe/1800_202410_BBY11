@@ -191,10 +191,9 @@ function addUser() {
     let userID = document.getElementById("userInput").value;
 
     let members = guildDoc.data().members;
-
     if (!members || members.length == 0) {
-        members = {userID};
-    } else if (!members.includes(userID)) {
+        members = [userID];
+    } else if (members.length != 0 && !members.includes(userID)) {
         members.push(userID)
     }
 
