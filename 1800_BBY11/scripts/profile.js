@@ -101,6 +101,7 @@ function populateQuestData() {
         userDoc.data().quests_created.map(element => questIDToCard(element, "postedQuestsContainer"))
         userDoc.data().quests_taken.map(element => questIDToCard(element, "takenQuestsContainer"))
         userDoc.data().quests_watched.map(element => questIDToCard(element, "watchedQuestsContainer"))
+        userDoc.data().quests_completed.map(element => questIDToCard(element, "completedQuestsContainer"))
     })
 }
 

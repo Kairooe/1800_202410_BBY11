@@ -10,7 +10,6 @@ function getUser() {
             console.log("No user is logged in");
         }
 
-        getGuild();
     });
 }
 getUser();
@@ -62,10 +61,15 @@ function displayQuestDetailsDynamically(collection, docID) {
                 
 
 
-                if (userID == questData.user_id) {
+                if (userID == questData.user_id || questData.availability != "Open") {
                     document.getElementById("requestButton").style.display = "none";
                 } else {
+                    document.getElementById("doneButton").style.display = "none";
                     document.getElementById("requestButton").href = "./request.html?docID=" + doc.id;
+                }
+
+                if (questData.availability == "Finished") {
+                    document.getElementById("doneButton").style.display = "none";
                 }
 
             } else {
@@ -165,3 +169,55 @@ window.addEventListener('load', function() {
         displayQuestCreatorDetails(questDocID);
     }
 });
+
+
+
+function finished() {
+    db.collection("quests").doc(questDocID).get()
+        .then((questDoc) => {
+            if (questDoc.data().availability == "Taken") {
+                //move to history taker
+                db.collection("users").get().then(allUsers => {
+                    allUsers.forEach(userDoc => {
+                        if (userDoc.data().quests_taken && userDoc.data().quests_taken.length != 0 && userDoc.data().quests_taken.includes(questDocID)) {
+                            questsTakenArray = userDoc.data().quests_taken;
+                            questsCompletedArray = userDoc.data().quests_completed;
+                            questsTakenArray.splice(questsTakenArray.indexOf(questDocID),1);
+                            if (!questsCompletedArray || questsCompletedArray.length == 0) {
+                                questsCompletedArray = [questDocID]
+                            } else {
+                                questsCompletedArray.push(questDocID)
+                            }
+                            db.collection("users").doc(userDoc.id).update({
+                                quests_taken: questsTakenArray,
+                                quests_completed: questsCompletedArray
+                            })
+                        }
+                    })
+                })
+
+                //move to history creator
+                db.collection("users").doc(userID).get().then(ownerDoc => {
+                    questsCreatedArray = ownerDoc.data().quests_created;
+                    questsCreatedArray.splice(questsCreatedArray.indexOf(questDocID),1);
+                    questsCompletedArray = ownerDoc.data().quests_completed;
+                    if (!questsCompletedArray || questsCompletedArray.length == 0) {
+                        questsCompletedArray = [questDocID]
+                    } else {
+                        questsCompletedArray.push(questDocID)
+                    }
+                    db.collection("users").doc(ownerDoc.id).update({
+                        quests_created: questsCreatedArray,
+                        quests_completed: questsCompletedArray
+                    })
+
+                    
+                })
+
+                //set as finished
+                db.collection("quests").doc(questDocID).update({
+                    availability: "Finished"
+                })
+            }
+        })
+}
