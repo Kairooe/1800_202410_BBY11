@@ -59,11 +59,13 @@ function displayQuestDetailsDynamically(collection, docID) {
                 });
                 tagsElement.innerHTML = tagsHTML;
 
-
+                
 
 
                 if (userID == questData.user_id) {
                     document.getElementById("requestButton").style.display = "none";
+                } else {
+                    document.getElementById("requestButton").href = "./request.html?docID=" + doc.id;
                 }
 
             } else {
