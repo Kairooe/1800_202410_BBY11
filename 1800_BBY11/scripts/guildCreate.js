@@ -143,4 +143,6 @@ window.addEventListener('load', function () {
     });
 });
 
+
+
 //was shamelessly stolen from https://stackoverflow.com/questions/6150289/how-can-i-convert-an-image-into-base64-string-using-javascript
