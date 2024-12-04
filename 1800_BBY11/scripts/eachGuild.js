@@ -119,6 +119,9 @@ function displayCardsDynamically() {
                 if (doc.data().guild != questDocID) {
                     return
                 }
+                if (data.availability != "Open") {
+                    return
+                }
 
                 title = doc.data().title;       // get value of the "name" key
                 details = doc.data().details;  // get value of the "details" key

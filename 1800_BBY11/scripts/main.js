@@ -49,6 +49,10 @@ function makeCard(doc) {
     let cardTemplate = document.getElementById("questCardTemplate");
     let data = doc.data(); // Get data from Firestore document
 
+    if (data.availability != "Open") {
+        return
+    }
+
     // Extract fields from the document
     let title = data.title;
     let details = data.details;
