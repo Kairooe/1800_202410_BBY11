@@ -49,5 +49,18 @@ function apply() {
             user_name: userDoc.data().name
         })
     })
+
+    Swal.fire({
+        title: "Application created successfully!",
+        icon: "success",
+        confirmButtonText: "Go Home",
+        customClass: {
+            confirmButton: 'swal2-confirm',
+        }
+    }).then((result) => {
+        if (result.isConfirmed) {  // Check if the confirm button was clicked
+            window.location.href = "main.html";  // Redirect to main.html
+        }
+    });
     
 }
