@@ -81,7 +81,10 @@
 
     <template id="questCardTemplate">
         <div class="col">
-            <div class="card" style="width: 18rem;">
+            <div class="card position-relative" style="width: 18rem;">
+                <!-- Pin positioned on top of the card -->
+                <img class="pin position-absolute" src="./images/pin.png" alt="Pin Image">
+                
                 <img class="card-image card-img-top" src="./images/Quest.png" alt="Quest Image">
                 <div class="card-body">
                     <h5 class="card-title">Quest Title</h5>
@@ -93,13 +96,15 @@
                     <br>
                     <hr>
                     <p class="card-text text-truncate">Quest details go here.</p>
-                    <!-- Add the creator profile section -->
+                    <!-- Creator Profile Section -->
                     <div class="creator-profile" style="display: flex; align-items: center;">Loading...</div>
                     <i class="material-icons" style="cursor: pointer;">bookmark_border</i>
                 </div>
             </div>
         </div>
     </template>
+    
+    
     
     
        
