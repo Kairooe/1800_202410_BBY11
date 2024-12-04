@@ -119,7 +119,7 @@ function displayCardsDynamically() {
                 if (doc.data().guild != questDocID) {
                     return
                 }
-                if (data.availability != "Open") {
+                if (doc.data().availability != "Open") {
                     return
                 }
 

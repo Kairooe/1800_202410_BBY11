@@ -91,7 +91,6 @@ function createQuest() {
         base64img = "";
     }
     
-
     db.collection("quests").add({
         user_id: currentUserID,
         date_created: Date.now(),
@@ -104,16 +103,19 @@ function createQuest() {
         estimated_time: questETA,
         details: questDetails,
         thumbnail: questThumbnail
-    })
-    .then((docRef) => {
+    }).then((docRef) => {
+        alert("falafel")
         db.collection("users").doc(currentUserID).get().then(userDoc => {
+            alert("balafel")
             let array = userDoc.data().quests_created
-
+            alert("adada" + !array + " " + array.length)
             if (!array || array.length == 0) {
                 array = [docRef.id];
-            } else if (array.length != 0 && !array.includes(userID)) {
+            } else if (array.length != 0 && !array.includes(docRef.id)) {
                 array.push(docRef.id)
+                alert(array)
             }
+            alert("stopping")
             db.collection("users").doc(currentUserID).set({
                 quests_created: array
             }, { merge: true });
