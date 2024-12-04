@@ -143,4 +143,21 @@ window.addEventListener('load', function () {
     });
 });
 
+//------------------------------------------------------------------------------
+// Adjust "Create Quest" button position on scroll
+//------------------------------------------------------------------------------
+window.addEventListener("scroll", () => {
+    const button = document.querySelector(".create-quest-button");
+    const footer = document.querySelector("#footerPlaceholder");
+
+    const footerTop = footer.getBoundingClientRect().top;
+    const viewportHeight = window.innerHeight;
+
+    if (footerTop < viewportHeight) {
+        button.style.bottom = `${viewportHeight - footerTop + 20}px`;
+    } else {
+        button.style.bottom = "20px";
+    }
+});
+
 //was shamelessly stolen from https://stackoverflow.com/questions/6150289/how-can-i-convert-an-image-into-base64-string-using-javascript
