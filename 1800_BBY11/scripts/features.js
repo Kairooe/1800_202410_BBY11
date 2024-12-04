@@ -10,6 +10,7 @@ function getUser() {
             db.collection("guilds").get().then((allGuilds) => {
                 allGuilds.forEach((guildDoc) => {
                     if (guildDoc.data().public || guildDoc.data().owner == currentUserID || (guildDoc.data().members && guildDoc.data().members.length != 0 && guildDoc.data().members.includes(currentUserID))) {
+                        
                         option = document.createElement("option");
 
                         option.innerHTML = guildDoc.data().name;
@@ -91,7 +92,7 @@ function createQuest() {
     }
     
 
-    db.collection("quests").doc().set({
+    db.collection("quests").add({
         user_id: currentUserID,
         date_created: Date.now(),
         guild: questGuild,
@@ -104,10 +105,18 @@ function createQuest() {
         details: questDetails,
         thumbnail: questThumbnail
     })
-
     .then((docRef) => {
-        currentUserID.get().then(userDoc => {
-            userDoc.data().quests_created.push(docRef.id)
+        db.collection("users").doc(currentUserID).get().then(userDoc => {
+            let array = userDoc.data().quests_created
+
+            if (!array || array.length == 0) {
+                array = [docRef.id];
+            } else if (array.length != 0 && !array.includes(userID)) {
+                array.push(docRef.id)
+            }
+            db.collection("users").doc(currentUserID).set({
+                quests_created: array
+            }, { merge: true });
         })
         form.reset(); // Optional: clear the form
     })

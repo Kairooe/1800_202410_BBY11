@@ -7,6 +7,7 @@ var questRef;
 
 
 function getUser() {
+    putQuestName()
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
             currentUser = db.collection("users").doc(user.uid);
@@ -32,10 +33,17 @@ function putQuestName() {
     })
 }
 
-putQuestName()
+
 
 
 
 function apply() {
-
+    
+    description = document.getElementById('description').value
+    alert(description + " " + questDoc.id + " " + userID)
+    db.collection("applications").doc().set({
+        description: description,
+        quest_id: questDoc.id,
+        user_ud: userID
+    })
 }
