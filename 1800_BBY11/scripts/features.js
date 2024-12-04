@@ -9,12 +9,15 @@ function getUser() {
             guildHolder = document.getElementById("guilds");
             db.collection("guilds").get().then((allGuilds) => {
                 allGuilds.forEach((guildDoc) => {
-                    option = document.createElement("option");
+                    if (guildDoc.data().public || !(guildDoc.data().owner != currentUserID && (!guildDoc.data().members && guildDoc.data().members.length == 0 && !guildDoc.data().members.includes(currentUserID)))) {
+                        option = document.createElement("option");
 
-                    option.innerHTML = guildDoc.data().name;
-                    option.value = guildDoc.id;
+                        option.innerHTML = guildDoc.data().name;
+                        option.value = guildDoc.id;
 
-                    guildHolder.appendChild(option);
+                        guildHolder.appendChild(option);
+                    }
+                    
                     
                 })
                 

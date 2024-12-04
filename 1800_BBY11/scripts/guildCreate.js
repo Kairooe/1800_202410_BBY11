@@ -61,7 +61,7 @@ function createGuild() {
         owner: currentUserID,
         description: questDetails,
         thumbnail: questThumbnail,
-        members: {},
+        members: null,
         public: false,
         name: questName
     })

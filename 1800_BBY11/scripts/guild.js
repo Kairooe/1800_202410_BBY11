@@ -22,8 +22,8 @@ function checkForDisplayableGuilds(userID) {
             if (doc.data().public) {
                 
                 displayGuild(doc);
-            } else if (!doc.data().public && (doc.data().owner == userID || (doc.data().members && doc.data().members.length == 0 && doc.data().members.includes(userID)))) {
-                //displayGuild(doc);
+            } else if (!doc.data().public && (doc.data().owner == userID || (doc.data().members && doc.data().members.length != 0 && doc.data().members.includes(userID)))) {
+                displayGuild(doc);
             }
         })
     })

@@ -78,7 +78,7 @@ function displayCardsDynamically(collection) {
             })
         })
 }
-
+var i = 0;
 function makeCard(doc) {
     let cardTemplate = document.getElementById("questCardTemplate");
     title = doc.data().title;       // get value of the "name" key
@@ -86,7 +86,7 @@ function makeCard(doc) {
     questTags = doc.data().tags;
     date = doc.data().date_created;
     thumbnail = doc.data().thumbnail;
-    docID = doc.id;
+    let docID = doc.id;
     newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
 
@@ -114,24 +114,19 @@ function makeCard(doc) {
 
     newcard.querySelector('.card-tags').innerHTML = tags;
 
-    newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+    newcard.querySelector('i').id = 'save-' + docID;
 
     newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
-    
-
-
-    //Optional: give unique ids to all elements for future use
-    // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-    // newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-    // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-    //attach to gallery, Example: "hikes-go-here"
     document.getElementById("quests-go-here").appendChild(newcard);
-
-    document.getElementById("quests-go-here").lastElementChild.addEventListener("click", () => {
-        document.location.href = "eachQuest.html?docID=" + docID;
-    })
+    document
+    .getElementById("quests-go-here")
+    .lastElementChild.addEventListener("click", () => {
+        document.location.href = "./eachQuest.html?docID=" + docID;
+        
+    }, true)
+    
+    
 
 
 }

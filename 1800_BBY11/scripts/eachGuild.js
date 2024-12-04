@@ -1,4 +1,4 @@
-var userID;  
+var userID;
 var currentUser;
 function getUser() {
     firebase.auth().onAuthStateChanged(user => {
@@ -31,9 +31,13 @@ function getGuild() {
             document.querySelector(".container").innerHTML = "<h1>Guild does not exist.</h1>";
             return
         }
-        if (!doc.data().public && (doc.data().owner != userID && (!doc.data().members || !doc.data().members.includes(userID)))) {
+        if (!doc.data().public && (doc.data().owner != userID && (!doc.data().members && doc.data().members.length == 0 && !doc.data().members.includes(userID)))) {
             document.querySelector(".container").innerHTML = `<h1>Sorry, you do not have access to this private board.</h1>`;
             return
+        }
+
+        if (doc.data().owner == userID) {
+            ifOwnerAddOptions();
         }
 
         if (doc.data().public) {
@@ -46,7 +50,7 @@ function getGuild() {
         if (doc.data().thumbnail != null && doc.data().thumbnail != "") {
             document.getElementById("guildImg").src = doc.data().thumbnail;
         }
-        
+
         document.getElementById("guildName").innerHTML = doc.data().name;
         document.getElementById("guildDesciption").innerHTML = doc.data().description;
     }).catch(
@@ -58,7 +62,7 @@ function getGuild() {
 
 function getMembers(guildDoc) {
     members = guildDoc.data().members;
-    
+
     db.collection("users").doc(guildDoc.data().owner).get().then((ownerDoc) => {
         displayMember(ownerDoc, true)
         if (members) {
@@ -69,7 +73,7 @@ function getMembers(guildDoc) {
             })
         }
     })
-    
+
 }
 
 function displayMember(memberDoc, isOwner) {
@@ -89,9 +93,10 @@ function displayMember(memberDoc, isOwner) {
         newcard.querySelector(".thingimg").style.borderWidth = "4px";
     }
     document.getElementById("guildMembers").appendChild(newcard);
-
-    document.getElementById("guildMembers").lastElementChild.addEventListener("click", () => {
-        document.location.href = "./profile.html?docID="+memberDoc.id;
+    document
+    .getElementById("guildMembers")
+    .lastElementChild.addEventListener("click", () => {
+        document.location.href = "./profile.html?docID=" + memberDoc.id;
     })
 
 
@@ -125,11 +130,11 @@ function displayCardsDynamically() {
                 newcard.querySelector('.card-text').innerHTML = details;
                 if (!thumbnail) {
                     newcard.querySelector('.card-image').src = `./images/Quest.png`;
-                    
+
                 } else {
                     newcard.querySelector('.card-image').src = thumbnail;
                 }
-                
+
 
                 let tags = ""
                 questTags.forEach((val) => {
@@ -137,7 +142,7 @@ function displayCardsDynamically() {
                 })
 
                 let eta = doc.data().estimated_time
-                
+
                 newcard.querySelector('.card-pay').innerHTML = doc.data().pay
                 newcard.querySelector('.card-time').innerHTML = doc.data().estimated_time + ` hour${eta > 1 ? "s" : ""}`;
 
@@ -147,7 +152,7 @@ function displayCardsDynamically() {
 
                 newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
-                
+
 
 
                 //Optional: give unique ids to all elements for future use
@@ -158,7 +163,19 @@ function displayCardsDynamically() {
                 //attach to gallery, Example: "hikes-go-here"
                 document.getElementById("guildQuests").appendChild(newcard);
 
-                //i++;   //Optional: iterate variable to serve as unique ID
+                document
+                .getElementById("guildQuests")
+                .lastElementChild.addEventListener("click", () => {
+                    document.location.href = "./eachQuest.html?docID=" + doc.id;
+                })
             })
         })
+}
+
+
+
+
+
+function ifOwnerAddOptions() {
+
 }
