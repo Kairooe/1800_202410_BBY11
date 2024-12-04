@@ -5,7 +5,19 @@
 function displayCardsDynamically(collection) {
     db.collection(collection).get().then(allQuests => {
         allQuests.forEach(doc => {
-            makeCard(doc); // Call makeCard() for each document
+            
+            if (doc.data().guild != null && doc.data().guild != "") {
+                db.collection("guilds").get().then(allGuilds => {
+                    allGuilds.forEach(guild => {
+                        
+                        
+                        if (guild.data().public && doc.data().guild == guild.id) {
+                            
+                            makeCard(doc);
+                        }
+                   });
+                });
+            }
         });
     }).catch(error => {
         console.error("Error fetching quests:", error);
@@ -44,6 +56,10 @@ function makeCard(doc) {
         tagsHTML += `<span style="white-space:pre;background:#c75146;color:white;border-radius:5px;padding:2px 5px;">${tag}</span>&nbsp;`;
     });
     newCard.querySelector('.card-tags').innerHTML = tagsHTML;
+    
+    // Add bookmark functionality
+    newCard.querySelector('i').id = 'save-' + docID;
+    newCard.querySelector('i').onclick = () => saveBookmark(docID);
 
     // Add pay and estimated time
     newCard.querySelector('.card-pay').innerHTML = `$${pay}`;
@@ -62,12 +78,24 @@ function makeCard(doc) {
                 if (!userPfp || userPfp.trim() === "") {
                     userPfp = './images/profile-default.jpeg'; // Fallback to a default profile picture
                 }
-
                 // Add the creator's profile with their picture and name
                 creatorProfile.innerHTML = `
                     <img src="${userPfp}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
                     <strong>${userName}</strong>
                 `;
+                // Add click functionality for navigation to detailed quest view
+                newCard.addEventListener("click", () => {
+                    document.location.href = "./eachQuest.html?docID=" + docID;
+                });
+
+                // Append the card to the container
+                document.getElementById("quests-go-here").appendChild(newCard);
+
+                document
+                    .getElementById("quests-go-here")
+                    .lastElementChild.addEventListener("click", () => {
+                        document.location.href = "eachQuest.html?docID=" + docID;
+                    });
             } else {
                 console.warn(`User with ID ${creatorID} not found.`);
             }
@@ -78,17 +106,14 @@ function makeCard(doc) {
         console.error("Error: .creator-profile element is missing in the template.");
     }
 
-    // Add bookmark functionality
-    newCard.querySelector('i').id = 'save-' + docID;
-    newCard.querySelector('i').onclick = () => saveBookmark(docID);
 
-    // Add click functionality for navigation to detailed quest view
-    newCard.addEventListener("click", () => {
-        document.location.href = "./eachQuest.html?docID=" + docID;
-    });
 
-    // Append the card to the container
-    document.getElementById("quests-go-here").appendChild(newCard);
+
+
+
+
+
+
 }
 
 //------------------------------------------------------------------------------
