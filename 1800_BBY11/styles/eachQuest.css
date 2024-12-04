@@ -134,9 +134,6 @@ h3{
   transform: translateX(10px);
 }
 
-#quest-creator-container{
-right: 5000px;
-}
 
 @media (max-width: 768px) {
   .container {
