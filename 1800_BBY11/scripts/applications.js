@@ -116,13 +116,14 @@ function accept(appID) {
       db.collection("quests").doc(appDoc.data().quest_id).update({
         availability: "Taken"
       });
-      userRef = db.collection("users").doc(appDoc.data().user_id);
-      userRef.get((userDoc) => {
-        array = userDoc.data().quests_taken;
+      
+      let userRef = db.collection("users").doc(appDoc.data().user_id);
+      userRef.get().then((userDoc) => {
+        let array = userDoc.data().quests_taken;
 
         if (!array || array.length == 0) {
           array = [appDoc.data().quest_id];
-        } else if (array.length != 0 && !array.includes(userID)) {
+        } else if (array.length != 0 && !array.includes(appDoc.data().quest_id)) {
           array.push(appDoc.data().quest_id);
         }
 
@@ -134,7 +135,7 @@ function accept(appID) {
         );
       });
 
-      deny(appID);
+      //deny(appID);
     });
 }
 
