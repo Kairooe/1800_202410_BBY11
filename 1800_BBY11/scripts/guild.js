@@ -46,22 +46,6 @@ function displayGuild(doc) {
     })
     
 }
-//------------------------------------------------------------------------------
-// Adjust "Create Quest" button position on scroll
-//------------------------------------------------------------------------------
-window.addEventListener("scroll", () => {
-    const button = document.querySelector(".create-quest-button");
-    const footer = document.querySelector("#footerPlaceholder");
-
-    const footerTop = footer.getBoundingClientRect().top;
-    const viewportHeight = window.innerHeight;
-
-    if (footerTop < viewportHeight) {
-        button.style.bottom = `${viewportHeight - footerTop + 20}px`;
-    } else {
-        button.style.bottom = "20px";
-    }
-});
 
 
 getNameFromAuth();

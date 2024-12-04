@@ -125,31 +125,30 @@
         </div>
     </template>
 
-        <template id="questCardTemplate">
-        <div class="col">
-            <div class="card position-relative" style="width: 18rem;">
-                <!-- Pin positioned on top of the card -->
-                <img class="pin position-absolute" src="./images/pin.png" alt="Pin Image">
-                
-                <img class="card-image card-img-top" src="./images/Quest.png" alt="Quest Image">
-                <div class="card-body">
-                    <h5 class="card-title">Quest Title</h5>
-                    <p class="card-tags"></p>
-                    <div class="card-quickinfo">
-                        <p style="float:left" class="card-time"></p>
-                        <p style="float:right" class="card-pay"></p>
-                    </div>
-                    <br>
-                    <hr>
-                    <p class="card-text text-truncate">Quest details go here.</p>
-                    <!-- Creator Profile Section -->
-                    <div class="creator-profile" style="display: flex; align-items: center;">Loading...</div>
-                    <i class="material-icons" style="cursor: pointer;">bookmark_border</i>
+    <template id="questCardTemplate">
+        <div class="card py-2 mx-2 position-relative" style="width: 18rem;">
+            <!-- Pin -->
+            <img class="pin position-absolute" src="./images/pin.png" alt="pin" />
+
+            <!-- Card Content -->
+            <img class="card-image card-img-top" src="..." alt="..." />
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-tags"></p>
+                <div class="card-quickinfo">
+                    <p style="float:left" class="card-time"></p>
+                    <p style="float:right" class="card-pay"></p>
                 </div>
+                <br />
+                <hr />
+                <p class="card-text text-truncate">
+                    Some quick example text to build on the card title and make up the bulk of the card's content.
+                </p>
+                <i class="material-icons">bookmark_border</i>
             </div>
         </div>
     </template>
-    
+
     <!-- our own footer goes here-->
     <nav id="footerPlaceholder"></nav>
 

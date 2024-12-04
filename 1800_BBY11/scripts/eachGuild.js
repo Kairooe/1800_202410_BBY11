@@ -125,7 +125,6 @@ function displayCardsDynamically() {
                 date = doc.data().date_created;
                 thumbnail = doc.data().thumbnail;
                 docID = doc.id;
-                creatorID = doc.data().user_id; // ID of the quest creator
                 newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
 
 
@@ -207,20 +206,3 @@ function addUser() {
 function removeUser() {
 
 }
-
-//------------------------------------------------------------------------------
-// Adjust "Create Quest" button position on scroll
-//------------------------------------------------------------------------------
-window.addEventListener("scroll", () => {
-    const button = document.querySelector(".create-quest-button");
-    const footer = document.querySelector("#footerPlaceholder");
-
-    const footerTop = footer.getBoundingClientRect().top;
-    const viewportHeight = window.innerHeight;
-
-    if (footerTop < viewportHeight) {
-        button.style.bottom = `${viewportHeight - footerTop + 20}px`;
-    } else {
-        button.style.bottom = "20px";
-    }
-});
