@@ -55,6 +55,7 @@ function getGuild() {
             document.getElementById("guildImg").src = doc.data().thumbnail;
         }
 
+        document.querySelector("title").innerHTML = doc.data().name;
         document.getElementById("guildName").innerHTML = doc.data().name;
         document.getElementById("guildDesciption").innerHTML = doc.data().description;
     }).catch(
