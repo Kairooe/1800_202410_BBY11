@@ -1,3 +1,20 @@
+var currentUserID;
+function getCurrentUser() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {         
+            currentUserID = user.uid
+
+
+            db.collection("users").doc(currentUserID).get().then(userDoc => {
+                watchedQuests = userDoc.data().quests_watched
+            })
+        }
+    });
+}
+
+getCurrentUser();
+
+
 //------------------------------------------------------------------------------
 // Function to display quests dynamically from Firestore
 // Input parameter: "collection" (name of the Firestore collection to fetch data from)
@@ -68,6 +85,15 @@ function makeCard(doc) {
                     <img src="${userPfp}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
                     <strong>${userName}</strong>
                 `;
+
+                newCard.querySelector('i').id = 'save-' + docID;
+                newCard.querySelector('i').onclick = () => saveBookmark(docID);
+
+                if (watchedQuests && watchedQuests.length != 0 && watchedQuests.includes(docID)) {
+                    newCard.querySelector('i').innerText = "bookmark"
+                }
+            
+                document.getElementById("quests-go-here").appendChild(newCard);
             } else {
                 console.warn(`User with ID ${creatorID} not found.`);
             }
@@ -79,31 +105,48 @@ function makeCard(doc) {
     }
 
     // Add bookmark functionality
-    newCard.querySelector('i').id = 'save-' + docID;
-    newCard.querySelector('i').onclick = () => saveBookmark(docID);
+    
 
     // Add click functionality for navigation to detailed quest view
-    newCard.addEventListener("click", () => {
-        document.location.href = "./eachQuest.html?docID=" + docID;
-    });
-
-    // Append the card to the container
-    document.getElementById("quests-go-here").appendChild(newCard);
+    
 }
 
 //------------------------------------------------------------------------------
 // Function to save a quest as a bookmark
 //------------------------------------------------------------------------------
 function saveBookmark(questDocID) {
-    currentUser.update({
-        bookmarks: firebase.firestore.FieldValue.arrayUnion(questDocID)
-    }).then(() => {
-        console.log("Bookmark saved for quest:", questDocID);
-        let iconID = 'save-' + questDocID;
-        document.getElementById(iconID).innerText = 'bookmark';
-    }).catch(error => {
-        console.error("Error saving bookmark:", error);
-    });
+    db.collection("users").doc(currentUserID).get().then(userDoc => {
+        array = userDoc.data().quests_watched
+        if (document.getElementById("save-" + questDocID).innerText == "bookmark_border") {
+            if (array && array.length != 0) {
+                if (!array.includes(questDocID)) {
+                    array.push(questDocID)
+                }
+            } else {
+                array = [questDocID]
+            }
+        } else {
+            if (array && array.length != 0) {
+                if (array.includes(questDocID)) {
+                    array.splice(array.indexOf(questDocID),1)
+                }
+            } else {
+                array = []
+            }
+        }
+        
+
+        db.collection("users").doc(currentUserID).set({
+            quests_watched: array
+        }, {merge: true}).then(() => {
+            let iconID = 'save-' + questDocID;
+            if (document.getElementById(iconID).innerText == 'bookmark_border') {
+                document.getElementById(iconID).innerText = 'bookmark';
+            } else {
+                document.getElementById(iconID).innerText = 'bookmark_border'
+            }
+        })
+    })
 }
 
 //------------------------------------------------------------------------------
