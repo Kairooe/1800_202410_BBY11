@@ -4,7 +4,6 @@ function getCurrentUser() {
         if (user) {         
             currentUserID = user.uid
 
-
             db.collection("users").doc(currentUserID).get().then(userDoc => {
                 watchedQuests = userDoc.data().quests_watched
             })
@@ -22,7 +21,20 @@ getCurrentUser();
 function displayCardsDynamically(collection) {
     db.collection(collection).get().then(allQuests => {
         allQuests.forEach(doc => {
-            makeCard(doc); // Call makeCard() for each document
+            if (doc.data().guild != null && doc.data().guild != "") {
+                db.collection("guilds").get().then(allGuilds => {
+                    allGuilds.forEach(guild => {
+                        if (guild.data().public && doc.data().guild == guild.id) {
+                            
+                            makeCard(doc);
+                        }
+                        
+                    })
+                })
+            } else {
+                makeCard(doc);
+            }
+            
         });
     }).catch(error => {
         console.error("Error fetching quests:", error);
@@ -94,6 +106,15 @@ function makeCard(doc) {
                 }
             
                 document.getElementById("quests-go-here").appendChild(newCard);
+
+                document.getElementById("quests-go-here")
+                .lastElementChild.querySelectorAll('img')
+                .forEach(elem => {
+                    elem.addEventListener("click", () => {
+                        document.location.href = "./eachQuest.html?docID=" + docID;
+                    })
+                })
+                
             } else {
                 console.warn(`User with ID ${creatorID} not found.`);
             }
