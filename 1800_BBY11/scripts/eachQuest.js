@@ -155,3 +155,7 @@ if (questDocID) {
     console.error("No questDocID provided in the URL.");
     document.getElementById("quest-title").textContent = "No Quest Selected";
 }
+
+
+
+// Initialize Firestore (make sure Firebase is properly configured in your project)
