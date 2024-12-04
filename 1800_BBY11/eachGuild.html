@@ -39,12 +39,14 @@
     <link rel="stylesheet" href="./styles/eachQuest.css">
     <link rel="stylesheet" href="./styles/main.css">
 
-        <!-- Preconnect to Google Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-        <!-- Link to Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Link to Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Myeongjo&display=swap"
+        rel="stylesheet">
 
 </head>
 
@@ -60,28 +62,52 @@
     <!-- stuff -->
     <br> <br>
     <div class="container">
-        <img id="guildImg" style="padding: 5px ;width: 10vw; height: 10vw; clip-path: circle(); border-radius: 50%; border-style: double; border-width: 6px; border-color: maroon;" src="./images/Card_Background.png">
+        <img id="guildImg"
+            style="padding: 5px ;width: 10vw; height: 10vw; clip-path: circle(); border-radius: 50%; border-style: double; border-width: 6px; border-color: maroon;"
+            src="./images/Card_Background.png">
         <br>
         <h1> <span id="guildName">Guild Name</span></h1>
         <hr style="width: 70%;">
         <br>
-        <h2 style="margin-left: auto; margin-right: auto;" id="guildDesciption">The soon-to-be-loaded guild description!</h2>
+        <h2 style="margin-left: auto; margin-right: auto;" id="guildDesciption">The soon-to-be-loaded guild description!
+        </h2>
         <br> <br> <br>
 
         <h3 class="displayIfPrivate" style=" margin-left: auto; margin-right: auto;">Guild Members</h3>
         <hr class="displayIfPrivate" style="width: 80%;">
-        <div class="displayIfPrivate row row-cols-auto" id="guildMembers" style="margin-bottom: 20px; margin-top: 20px;"></div>
-            
+        <div class="displayIfPrivate row row-cols-auto" id="guildMembers"
+            style="margin-bottom: 20px; margin-top: 20px;"></div>
+
         <h3 style="margin-left: auto; margin-right: auto;">Guild Quests</h3>
         <hr style="width: 80%;">
         <div class="row row-cols-auto" id="guildQuests" style="width: 100%;"></div>
         <br> <br> <br>
-        <h3 style="margin-left: auto; margin-right: auto;">Owner Tab</h3>
-        <hr style="width: 80%;">
-        <div class="row row-cols-auto" style="width: 100%;">
-            <button>bwah</button>
-        </div>
-        
+        <h3 class="ownerThings" style="margin-left: auto; margin-right: auto;">Owner Tab</h3>
+        <hr class="ownerThings" style="width: 80%;">
+        <form class="ownerThings">
+            <fieldset class="mb-3" id="inviteFields">
+                <div class="form-group">
+                    <label>User</label>
+                    <input type="text" id="userInput" class="form-control"
+                        placeholder="ID of the person you want to affect." required />
+                </div>
+
+
+
+            </fieldset>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-info" onclick="removeUser()">
+                    Remove User from Guild
+                </button>
+            </div>
+            <div class="d-flex justify-content-end mt-5">
+                <button type="button" class="btn btn-info" onclick="addUser()">
+                    Add User to Guild
+                </button>
+            </div>
+        </form>
+    </div>
+
     </div>
 
     <div class="create-quest-button">
@@ -93,7 +119,9 @@
 
     <template id="memberTemplate">
         <div class="thang">
-            <img class="thingimg" style="width:5vw; clip-path: circle(); margin: 4px; border-style:solid; border-width: 2px; border-color: maroon; border-radius: 50%;" src="./images/03.jpg">
+            <img class="thingimg"
+                style="width:5vw; clip-path: circle(); margin: 4px; border-style:solid; border-width: 2px; border-color: maroon; border-radius: 50%;"
+                src="./images/03.jpg">
         </div>
     </template>
 
@@ -101,7 +129,7 @@
         <div class="card py-2 mx-2 position-relative" style="width: 18rem;">
             <!-- Pin -->
             <img class="pin position-absolute" src="./images/pin.png" alt="pin" />
-            
+
             <!-- Card Content -->
             <img class="card-image card-img-top" src="..." alt="..." />
             <div class="card-body">

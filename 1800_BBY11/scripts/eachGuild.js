@@ -17,6 +17,8 @@ getUser();
 
 var urlParams;
 var questDocID;
+var guildRef;
+var guildDoc;
 
 function getGuild() {
     urlParams = new URLSearchParams(window.location.search);
@@ -27,6 +29,8 @@ function getGuild() {
     }
 
     db.collection("guilds").doc(questDocID).get().then((doc) => {
+        guildDoc = doc;
+        guildRef = db.collection("guilds").doc(questDocID);
         if (!doc.exists) {
             document.querySelector(".container").innerHTML = "<h1>Guild does not exist.</h1>";
             return
@@ -36,8 +40,8 @@ function getGuild() {
             return
         }
 
-        if (doc.data().owner == userID) {
-            ifOwnerAddOptions();
+        if (doc.data().owner != userID) {
+            hideOwnerOptions();
         }
 
         if (doc.data().public) {
@@ -176,6 +180,30 @@ function displayCardsDynamically() {
 
 
 
-function ifOwnerAddOptions() {
+function hideOwnerOptions() {
+    document.querySelectorAll(".ownerThings").forEach(elem => {
+        elem.style.display = "none";
+    })
+}
+
+
+function addUser() {
+    let userID = document.getElementById("userInput").value;
+
+    let members = guildDoc.data().members;
+
+    if (!members || members.length == 0) {
+        members = {userID};
+    } else if (!members.includes(userID)) {
+        members.push(userID)
+    }
+
+    guildRef.set({
+        members: members
+    }, { merge: true });
+    
+}
+
+function removeUser() {
 
 }
