@@ -83,6 +83,9 @@ function displayCardsDynamically() {
                 .querySelector(".denyButton")
                 .setAttribute("onClick", `javascript: deny("${appId}")`);
 
+              newcard.querySelector(".acceptButton").id = "a" + appId;
+              newcard.querySelector(".denyButton").id = "d" + appId;
+
               document
                 .getElementById("historyQuestsContainer")
                 .appendChild(newcard);
@@ -135,10 +138,13 @@ function accept(appID) {
         );
       });
 
-      //deny(appID);
+      deny(appID);
+
+      
     });
 }
 
 function deny(appID) {
+  document.getElementById("a"+appID).parent.parent.remove();
   db.collection("applications").doc(appID).delete();
 }

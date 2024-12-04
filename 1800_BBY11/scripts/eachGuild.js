@@ -157,11 +157,29 @@ function displayCardsDynamically() {
 
                 newcard.querySelector('.card-tags').innerHTML = tags;
 
-                newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
+                //newcard.querySelector('i').id = 'save-' + docID;   //guaranteed to be unique
 
-                newcard.querySelector('i').onclick = () => saveBookmark(docID);
+                //newcard.querySelector('i').onclick = () => saveBookmark(docID);
 
+                let creatorProfile = newcard.querySelector('.creator-profile');
 
+                db.collection("users").doc(doc.data().user_id).get().then(userDoc => {
+                    let userName = userDoc.data().name || "Unknown User";
+                    let userPfp = userDoc.data().pfp;
+
+                    creatorProfile.innerHTML = `
+                    <img src="${userPfp}" alt="Profile Picture" style="width: 30px; height: 30px; border-radius: 50%; margin-right: 8px;">
+                    <strong>${userName}</strong>
+                    `;
+
+                    document.getElementById("guildQuests").appendChild(newcard);
+
+                    document
+                    .getElementById("guildQuests")
+                    .lastElementChild.addEventListener("click", () => {
+                        document.location.href = "./eachQuest.html?docID=" + doc.id;
+                    })
+                    })
 
 
                 //Optional: give unique ids to all elements for future use
@@ -170,13 +188,7 @@ function displayCardsDynamically() {
                 // newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
                 //attach to gallery, Example: "hikes-go-here"
-                document.getElementById("guildQuests").appendChild(newcard);
-
-                document
-                .getElementById("guildQuests")
-                .lastElementChild.addEventListener("click", () => {
-                    document.location.href = "./eachQuest.html?docID=" + doc.id;
-                })
+                
             })
         })
 }
